@@ -7,11 +7,8 @@ public class ProjectCustom extends Project{
     //检查对象
     private List<Branch> branchList;
     //组长
-    private List<User> leaderList;
-    //主查
-    private List<User> masterList;
-    //组员
-    private List<User> slaverList;
+    private List<User> userList;
+
     //附件
     private List<File> fileList;
 
@@ -23,28 +20,12 @@ public class ProjectCustom extends Project{
         this.branchList = branchList;
     }
 
-    public List<User> getLeaderList() {
-        return leaderList;
+    public List<User> getUserList() {
+        return userList;
     }
 
-    public void setLeaderList(List<User> leaderList) {
-        this.leaderList = leaderList;
-    }
-
-    public List<User> getMasterList() {
-        return masterList;
-    }
-
-    public void setMasterList(List<User> masterList) {
-        this.masterList = masterList;
-    }
-
-    public List<User> getSlaverList() {
-        return slaverList;
-    }
-
-    public void setSlaverList(List<User> slaverList) {
-        this.slaverList = slaverList;
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 
     public List<File> getFileList() {

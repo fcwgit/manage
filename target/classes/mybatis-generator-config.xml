@@ -9,6 +9,9 @@
     <classPathEntry location="/Users/fanchengwei/program/jar/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar"/>
 
     <context id="context" targetRuntime="MyBatis3">
+        <!-- 配置pojo的序列化 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
         <commentGenerator>
             <property name="suppressAllComments" value="true"/>
             <property name="suppressDate" value="true"/>
@@ -28,7 +31,7 @@
         </javaModelGenerator>
 
         <!-- *Mapper.xml 文件的位置 -->
-        <sqlMapGenerator targetPackage="cn.com.yusys.mapper" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="cn.com.yusys.mapper" targetProject="src/main/resources">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 

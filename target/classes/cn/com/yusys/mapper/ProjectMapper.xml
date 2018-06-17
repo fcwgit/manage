@@ -6,13 +6,14 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="VARCHAR" />
     <result column="date" property="date" jdbcType="VARCHAR" />
-    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="manager_id" property="managerId" jdbcType="VARCHAR" />
+    <result column="manager_name" property="managerName" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="cn.com.yusys.po.Project" extends="BaseResultMap" >
     <result column="desc" property="desc" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, state, date, user_id
+    id, name, state, date, manager_id, manager_name
   </sql>
   <sql id="Blob_Column_List" >
     desc
@@ -31,11 +32,11 @@
   </delete>
   <insert id="insert" parameterType="cn.com.yusys.po.Project" >
     insert into project (id, name, state, 
-      date, user_id, desc
-      )
+      date, manager_id, manager_name, 
+      desc)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
-      #{date,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{desc,jdbcType=LONGVARCHAR}
-      )
+      #{date,jdbcType=VARCHAR}, #{managerId,jdbcType=VARCHAR}, #{managerName,jdbcType=VARCHAR}, 
+      #{desc,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.com.yusys.po.Project" >
     insert into project
@@ -52,8 +53,11 @@
       <if test="date != null" >
         date,
       </if>
-      <if test="userId != null" >
-        user_id,
+      <if test="managerId != null" >
+        manager_id,
+      </if>
+      <if test="managerName != null" >
+        manager_name,
       </if>
       <if test="desc != null" >
         desc,
@@ -72,8 +76,11 @@
       <if test="date != null" >
         #{date,jdbcType=VARCHAR},
       </if>
-      <if test="userId != null" >
-        #{userId,jdbcType=VARCHAR},
+      <if test="managerId != null" >
+        #{managerId,jdbcType=VARCHAR},
+      </if>
+      <if test="managerName != null" >
+        #{managerName,jdbcType=VARCHAR},
       </if>
       <if test="desc != null" >
         #{desc,jdbcType=LONGVARCHAR},
@@ -92,8 +99,11 @@
       <if test="date != null" >
         date = #{date,jdbcType=VARCHAR},
       </if>
-      <if test="userId != null" >
-        user_id = #{userId,jdbcType=VARCHAR},
+      <if test="managerId != null" >
+        manager_id = #{managerId,jdbcType=VARCHAR},
+      </if>
+      <if test="managerName != null" >
+        manager_name = #{managerName,jdbcType=VARCHAR},
       </if>
       <if test="desc != null" >
         desc = #{desc,jdbcType=LONGVARCHAR},
@@ -106,7 +116,8 @@
     set name = #{name,jdbcType=VARCHAR},
       state = #{state,jdbcType=VARCHAR},
       date = #{date,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=VARCHAR},
+      manager_id = #{managerId,jdbcType=VARCHAR},
+      manager_name = #{managerName,jdbcType=VARCHAR},
       desc = #{desc,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -115,7 +126,8 @@
     set name = #{name,jdbcType=VARCHAR},
       state = #{state,jdbcType=VARCHAR},
       date = #{date,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=VARCHAR}
+      manager_id = #{managerId,jdbcType=VARCHAR},
+      manager_name = #{managerName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -7,9 +7,12 @@
     <result column="section" property="section" jdbcType="VARCHAR" />
     <result column="post" property="post" jdbcType="VARCHAR" />
     <result column="specialty" property="specialty" jdbcType="VARCHAR" />
+    <result column="manager_id" property="managerId" jdbcType="VARCHAR" />
+    <result column="manager_name" property="managerName" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, section, post, specialty
+    id, name, section, post, specialty, manager_id, manager_name, state
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -23,9 +26,11 @@
   </delete>
   <insert id="insert" parameterType="cn.com.yusys.po.User" >
     insert into user (id, name, section, 
-      post, specialty)
+      post, specialty, manager_id, 
+      manager_name, state)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{section,jdbcType=VARCHAR}, 
-      #{post,jdbcType=VARCHAR}, #{specialty,jdbcType=VARCHAR})
+      #{post,jdbcType=VARCHAR}, #{specialty,jdbcType=VARCHAR}, #{managerId,jdbcType=VARCHAR}, 
+      #{managerName,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.com.yusys.po.User" >
     insert into user
@@ -45,6 +50,15 @@
       <if test="specialty != null" >
         specialty,
       </if>
+      <if test="managerId != null" >
+        manager_id,
+      </if>
+      <if test="managerName != null" >
+        manager_name,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -61,6 +75,15 @@
       </if>
       <if test="specialty != null" >
         #{specialty,jdbcType=VARCHAR},
+      </if>
+      <if test="managerId != null" >
+        #{managerId,jdbcType=VARCHAR},
+      </if>
+      <if test="managerName != null" >
+        #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -79,6 +102,15 @@
       <if test="specialty != null" >
         specialty = #{specialty,jdbcType=VARCHAR},
       </if>
+      <if test="managerId != null" >
+        manager_id = #{managerId,jdbcType=VARCHAR},
+      </if>
+      <if test="managerName != null" >
+        manager_name = #{managerName,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -87,7 +119,10 @@
     set name = #{name,jdbcType=VARCHAR},
       section = #{section,jdbcType=VARCHAR},
       post = #{post,jdbcType=VARCHAR},
-      specialty = #{specialty,jdbcType=VARCHAR}
+      specialty = #{specialty,jdbcType=VARCHAR},
+      manager_id = #{managerId,jdbcType=VARCHAR},
+      manager_name = #{managerName,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

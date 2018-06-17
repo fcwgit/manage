@@ -11,7 +11,9 @@ public class Project implements Serializable {
 
     private String date;
 
-    private String userId;
+    private String managerId;
+
+    private String managerName;
 
     private String desc;
 
@@ -49,12 +51,20 @@ public class Project implements Serializable {
         this.date = date == null ? null : date.trim();
     }
 
-    public String getUserId() {
-        return userId;
+    public String getManagerId() {
+        return managerId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+    public void setManagerId(String managerId) {
+        this.managerId = managerId == null ? null : managerId.trim();
+    }
+
+    public String getManagerName() {
+        return managerName;
+    }
+
+    public void setManagerName(String managerName) {
+        this.managerName = managerName == null ? null : managerName.trim();
     }
 
     public String getDesc() {

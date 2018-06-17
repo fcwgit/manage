@@ -13,6 +13,12 @@ public class User implements Serializable {
 
     private String specialty;
 
+    private String managerId;
+
+    private String managerName;
+
+    private String state;
+
     private static final long serialVersionUID = 1L;
 
     public String getId() {
@@ -53,5 +59,29 @@ public class User implements Serializable {
 
     public void setSpecialty(String specialty) {
         this.specialty = specialty == null ? null : specialty.trim();
+    }
+
+    public String getManagerId() {
+        return managerId;
+    }
+
+    public void setManagerId(String managerId) {
+        this.managerId = managerId == null ? null : managerId.trim();
+    }
+
+    public String getManagerName() {
+        return managerName;
+    }
+
+    public void setManagerName(String managerName) {
+        this.managerName = managerName == null ? null : managerName.trim();
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state == null ? null : state.trim();
     }
 }

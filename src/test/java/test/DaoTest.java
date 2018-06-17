@@ -1,7 +1,9 @@
 package test;
 
 import cn.com.yusys.mapper.BranchMapper;
+import cn.com.yusys.mapper.ProjectCustomMapper;
 import cn.com.yusys.po.Branch;
+import cn.com.yusys.po.ProjectCustom;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
@@ -16,10 +18,14 @@ public class DaoTest {
 
         SqlSessionFactory sqlSessionFactory = (SqlSessionFactory)context.getBean("sqlSessionFactory");
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        BranchMapper branchMapper = sqlSession.getMapper(BranchMapper.class);
+        //BranchMapper branchMapper = sqlSession.getMapper(BranchMapper.class);
+        //
+        //
+        //Branch branch = branchMapper.selectByPrimaryKey("1");
 
+        ProjectCustomMapper projectCustomMapper = sqlSession.getMapper(ProjectCustomMapper.class);
+        ProjectCustom projectCustom = projectCustomMapper.findProjectBranchUserResultMap();
 
-        Branch branch = branchMapper.selectByPrimaryKey("1");
-        System.out.println(branch.getName());
+        System.out.println(projectCustom.getBranchList().size());
     }
 }
