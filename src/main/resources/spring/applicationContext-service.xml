@@ -14,8 +14,8 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!--定义商品管理的Service-->
-    <bean id="itemsService" class="cn.com.yusys.service.impl.LoginService"/>
+    <!--定义管理员的Service-->
+    <bean id="itemsService" class="cn.com.yusys.service.impl.ManagerServiceImpl"/>
 </beans>
 
 

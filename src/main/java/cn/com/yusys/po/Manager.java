@@ -1,16 +1,21 @@
 package cn.com.yusys.po;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 public class Manager implements Serializable {
     private String id;
 
+    //message
+    @Size(min = 1,max = 10,message = "{manager.name.length.error}")
     private String name;
 
     private String section;
 
     private String post;
 
+    @NotNull(message = "{manager.password.null.error}")
     private String password;
 
     private String type;

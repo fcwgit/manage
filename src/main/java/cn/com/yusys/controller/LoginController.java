@@ -1,22 +1,26 @@
 package cn.com.yusys.controller;
 
-import cn.com.yusys.service.impl.LoginService;
+import cn.com.yusys.po.Manager;
+import cn.com.yusys.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.text.NumberFormat;
-
 @Controller
 public class LoginController {
     @Autowired
-    LoginService loginService;
+    ManagerService managerService;
 
     @RequestMapping("/login")
-    public ModelAndView login()throws Exception{
-        loginService.queryUserByName(null);
+    public String login()throws Exception{
+        //loginService.queryUserByName(null);
+        Manager manager = new Manager();
+        manager.setId("chaoji");
+        manager = managerService.findManagerById("chaoji");
 
-        return null;
+
+
+        return "login";
     }
 }
