@@ -1,7 +1,6 @@
 package cn.com.yusys.po;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Manager implements Serializable {
     private String name;
@@ -16,7 +15,7 @@ public class Manager implements Serializable {
 
     private Integer number;
 
-    private Date date;
+    private String date;
 
     private static final long serialVersionUID = 1L;
 
@@ -68,11 +67,11 @@ public class Manager implements Serializable {
         this.number = number;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(String date) {
+        this.date = date == null ? null : date.trim();
     }
 }

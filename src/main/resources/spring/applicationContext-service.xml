@@ -13,9 +13,11 @@
        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd">
-
+    <!--系统初始化-->
+    <bean id="initService" class="cn.com.yusys.service.impl.InitServiceImpl" init-method="initMethod"/>
     <!--定义管理员的Service-->
     <bean id="itemsService" class="cn.com.yusys.service.impl.ManagerServiceImpl"/>
+    <bean id="userService" class="cn.com.yusys.service.impl.UserServiceImpl"/>
 </beans>
 
 

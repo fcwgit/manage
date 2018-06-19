@@ -12,4 +12,9 @@ public class ManagerServiceImpl implements ManagerService{
     public Manager findManagerById(String id)throws Exception{
         return managerMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public void updateByPrimaryKey(Manager manager) throws Exception {
+        managerMapper.updateByPrimaryKey(manager);
+    }
 }
