@@ -35,6 +35,10 @@
             <mvc:mapping path="/**"/>
             <bean class="cn.com.yusys.interceptor.AllowOriginInterceptor"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="cn.com.yusys.interceptor.LoginCheckInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!--视图解析器

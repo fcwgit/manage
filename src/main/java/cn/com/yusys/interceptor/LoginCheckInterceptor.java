@@ -1,5 +1,7 @@
 package cn.com.yusys.interceptor;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -8,17 +10,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class LoginCheckInterceptor implements HandlerInterceptor{
+    public static Log log= LogFactory.getLog(LoginCheckInterceptor.class);
     //拦截器基于AOP的，身份认证、授权
     //切面编程：Handler执行之前执行
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
+        HttpSession session = httpServletRequest.getSession();
+        log.info("sessionId="+session.getId());
         String url = httpServletRequest.getRequestURI();
+        log.info("url="+url);
         //如果是公开地址，则不判断Session
         if(url.indexOf("login")>=0){
             return true;
         }
         //判断Session
-        HttpSession session = httpServletRequest.getSession();
         session.getAttribute("manage");
         return true;
     }

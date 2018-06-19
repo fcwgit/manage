@@ -9,7 +9,7 @@
  Target Server Version : 50710
  File Encoding         : utf-8
 
- Date: 06/17/2018 23:55:06 PM
+ Date: 06/19/2018 11:16:55 AM
 */
 
 SET NAMES utf8;
@@ -35,7 +35,7 @@ CREATE TABLE `branch` (
 --  Records of `branch`
 -- ----------------------------
 BEGIN;
-INSERT INTO `branch` VALUES ('1', '100000001', '国有', '分行', '工商银行北京分行', '1', '9527', '2018-06-17 23:10:11');
+INSERT INTO `branch` VALUES ('100001', '100000001', '国有', '分行', '工商银行北京分行', '1', '9527', '2018-06-17 23:10:11'), ('100002', '100000002', '国有', '分行', '交通银行北京分行', '1', '9527', '2018-06-17 23:10:11'), ('100003', '100000003', '国有', '分行', '建设银行北京分行', '1', '9527', '2018-06-17 23:10:11'), ('100004', '100000004', '城商行', '法人', '齐鲁银行', '1', '9527', '2018-06-17 23:10:11'), ('100005', '100000005', '农商行', '法人', '北京农商银行', '1', '9527', '2018-06-17 23:10:11');
 COMMIT;
 
 -- ----------------------------
@@ -52,18 +52,34 @@ CREATE TABLE `file` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+--  Records of `file`
+-- ----------------------------
+BEGIN;
+INSERT INTO `file` VALUES ('100001', '安全检查', 'c:/', '0', '2018-06-18 00:38:04');
+COMMIT;
+
+-- ----------------------------
 --  Table structure for `manager`
 -- ----------------------------
 DROP TABLE IF EXISTS `manager`;
 CREATE TABLE `manager` (
-  `id` varchar(64) NOT NULL COMMENT '管理员编号',
   `name` varchar(10) NOT NULL COMMENT '管理员姓名',
   `section` varchar(30) NOT NULL COMMENT '管理员所属处室',
   `post` varchar(30) NOT NULL COMMENT '管理员职位',
   `password` varchar(64) NOT NULL COMMENT '管理员密码',
   `type` varchar(1) NOT NULL COMMENT '管理员类型 0:超级管理员;1:普通管理员;',
-  PRIMARY KEY (`id`)
+  `number` int(2) NOT NULL COMMENT '当日密码错误次数',
+  `date` date NOT NULL COMMENT '密码错误日期',
+  PRIMARY KEY (`name`),
+  UNIQUE KEY `manager_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `manager`
+-- ----------------------------
+BEGIN;
+INSERT INTO `manager` VALUES ('chaoji', '核查一室', '局长', '123456', '0', '0', '0000-00-00');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `project`
@@ -75,49 +91,69 @@ CREATE TABLE `project` (
   `desc` text NOT NULL COMMENT '项目描述',
   `state` varchar(1) NOT NULL COMMENT '0:正常;1:关闭;',
   `date` varchar(12) NOT NULL COMMENT '检查月份',
-  `user_id` varchar(64) NOT NULL,
+  `manager_id` varchar(64) NOT NULL COMMENT '管理员id',
+  `manager_name` varchar(100) NOT NULL COMMENT '管理员姓名',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `project`
+-- ----------------------------
+BEGIN;
+INSERT INTO `project` VALUES ('100001', '安全检查', '安全检查', '0', '2018-06', '9527', '9527');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `project_branch_relation`
 -- ----------------------------
 DROP TABLE IF EXISTS `project_branch_relation`;
 CREATE TABLE `project_branch_relation` (
-  `id` varchar(64) NOT NULL,
   `project_id` varchar(64) NOT NULL,
   `branch_id` varchar(64) NOT NULL,
-  `state` varchar(1) NOT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`,`project_id`,`branch_id`)
+  PRIMARY KEY (`project_id`,`branch_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `project_branch_relation`
+-- ----------------------------
+BEGIN;
+INSERT INTO `project_branch_relation` VALUES ('100001', '100001'), ('100001', '100002'), ('100001', '100003');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `project_file_relation`
 -- ----------------------------
 DROP TABLE IF EXISTS `project_file_relation`;
 CREATE TABLE `project_file_relation` (
-  `id` varchar(64) NOT NULL,
   `project_id` varchar(64) NOT NULL COMMENT '项目id',
   `file_id` varchar(64) NOT NULL COMMENT '文件id',
-  `state` varchar(1) NOT NULL COMMENT '0:正常;1:删除;',
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '添加时间',
-  PRIMARY KEY (`id`,`project_id`,`file_id`)
+  PRIMARY KEY (`project_id`,`file_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `project_file_relation`
+-- ----------------------------
+BEGIN;
+INSERT INTO `project_file_relation` VALUES ('100001', '100001');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `project_user_relation`
 -- ----------------------------
 DROP TABLE IF EXISTS `project_user_relation`;
 CREATE TABLE `project_user_relation` (
-  `id` varchar(64) NOT NULL,
   `project_id` varchar(64) NOT NULL COMMENT '项目id',
   `user_id` varchar(64) NOT NULL COMMENT '检查人员id（组长、主查、检查人员）',
   `type` varchar(1) NOT NULL COMMENT '0:组长;1:主查;2:组员;',
-  `state` varchar(1) NOT NULL COMMENT '0:正常;1:关闭;',
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '添加时间',
-  PRIMARY KEY (`id`,`project_id`,`user_id`,`type`)
+  PRIMARY KEY (`project_id`,`user_id`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `project_user_relation`
+-- ----------------------------
+BEGIN;
+INSERT INTO `project_user_relation` VALUES ('100001', '100001', '0'), ('100001', '100002', '1'), ('100001', '100003', '1'), ('100001', '100004', '2'), ('100001', '100005', '2'), ('100001', '100007', '2');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `transfer`
@@ -143,7 +179,17 @@ CREATE TABLE `user` (
   `section` varchar(40) NOT NULL COMMENT '处室',
   `post` varchar(40) NOT NULL COMMENT '职位',
   `specialty` varchar(100) NOT NULL COMMENT '特长',
+  `manager_id` varchar(64) NOT NULL,
+  `manager_name` varchar(100) NOT NULL,
+  `state` varchar(1) NOT NULL COMMENT '0:正常;1:注销;',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `user`
+-- ----------------------------
+BEGIN;
+INSERT INTO `user` VALUES ('100001', '张三', '核查一室', '科长', 'java、zookeeper', '100001', 'chaoji', '0'), ('100002', '李四', '核查二室', '局长', 'dubbo、zookeeper', '100001', 'chaoji', '0'), ('100003', '王五', '核查一室', '科员', 'docker、zookeeper', '100001', 'chaoji', '0'), ('100004', '赵六', '核查三室', '组长', 'Kafka、zookeeper', '100001', 'chaoji', '0'), ('100005', '孙七', '核查四室', '司长', 'ActiveMQ、zookeeper', '100001', 'chaoji', '0'), ('100006', '周八', '核查四室', '科员', 'MongoDB、zookeeper', '100001', 'chaoji', '0'), ('100007', '吴九', '核查一室', '科员', 'SpringBoot、zookeeper', '100001', 'chaoji', '0');
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

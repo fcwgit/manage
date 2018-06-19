@@ -2,40 +2,38 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.com.yusys.mapper.ManagerMapper" >
   <resultMap id="BaseResultMap" type="cn.com.yusys.po.Manager" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <id column="name" property="name" jdbcType="VARCHAR" />
     <result column="section" property="section" jdbcType="VARCHAR" />
     <result column="post" property="post" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="number" property="number" jdbcType="INTEGER" />
+    <result column="date" property="date" jdbcType="DATE" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, section, post, password, type
+    name, section, post, password, type, number, date
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from manager
-    where id = #{id,jdbcType=VARCHAR}
+    where name = #{name,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from manager
-    where id = #{id,jdbcType=VARCHAR}
+    where name = #{name,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="cn.com.yusys.po.Manager" >
-    insert into manager (id, name, section, 
-      post, password, type
-      )
-    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{section,jdbcType=VARCHAR}, 
-      #{post,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}
-      )
+    insert into manager (name, section, post, 
+      password, type, number, 
+      date)
+    values (#{name,jdbcType=VARCHAR}, #{section,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, 
+      #{date,jdbcType=DATE})
   </insert>
   <insert id="insertSelective" parameterType="cn.com.yusys.po.Manager" >
     insert into manager
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="name != null" >
         name,
       </if>
@@ -51,11 +49,14 @@
       <if test="type != null" >
         type,
       </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
-      </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
@@ -71,14 +72,17 @@
       <if test="type != null" >
         #{type,jdbcType=VARCHAR},
       </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=DATE},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.com.yusys.po.Manager" >
     update manager
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
-      </if>
       <if test="section != null" >
         section = #{section,jdbcType=VARCHAR},
       </if>
@@ -91,16 +95,23 @@
       <if test="type != null" >
         type = #{type,jdbcType=VARCHAR},
       </if>
+      <if test="number != null" >
+        number = #{number,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=DATE},
+      </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where name = #{name,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.com.yusys.po.Manager" >
     update manager
-    set name = #{name,jdbcType=VARCHAR},
-      section = #{section,jdbcType=VARCHAR},
+    set section = #{section,jdbcType=VARCHAR},
       post = #{post,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
+      type = #{type,jdbcType=VARCHAR},
+      number = #{number,jdbcType=INTEGER},
+      date = #{date,jdbcType=DATE}
+    where name = #{name,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -1,34 +1,24 @@
 package cn.com.yusys.po;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Date;
 
 public class Manager implements Serializable {
-    private String id;
-
-    //message
-    @Size(min = 1,max = 10,message = "{manager.name.length.error}")
     private String name;
 
     private String section;
 
     private String post;
 
-    @NotNull(message = "{manager.password.null.error}")
     private String password;
 
     private String type;
 
+    private Integer number;
+
+    private Date date;
+
     private static final long serialVersionUID = 1L;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
 
     public String getName() {
         return name;
@@ -68,5 +58,21 @@ public class Manager implements Serializable {
 
     public void setType(String type) {
         this.type = type == null ? null : type.trim();
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
