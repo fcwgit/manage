@@ -72,7 +72,7 @@ public class LoginController {
             //检查对象优先级
             objectHashMap.put("branch_rate", DictUtil.getDict("branch_rate"));
 
-            objectHashMap.put("workerAll",userService.getAllUser());
+            objectHashMap.put("worker",userService.getAllUser());
 
 
 

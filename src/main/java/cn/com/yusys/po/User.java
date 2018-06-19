@@ -5,7 +5,9 @@ import java.io.Serializable;
 public class User implements Serializable {
     private String id;
 
-    private String name;
+    private String label;
+
+    private String pinyin;
 
     private String section;
 
@@ -29,12 +31,20 @@ public class User implements Serializable {
         this.id = id == null ? null : id.trim();
     }
 
-    public String getName() {
-        return name;
+    public String getLabel() {
+        return label;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setLabel(String label) {
+        this.label = label == null ? null : label.trim();
+    }
+
+    public String getPinyin() {
+        return pinyin;
+    }
+
+    public void setPinyin(String pinyin) {
+        this.pinyin = pinyin == null ? null : pinyin.trim();
     }
 
     public String getSection() {

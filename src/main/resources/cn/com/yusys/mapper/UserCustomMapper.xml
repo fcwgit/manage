@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.com.yusys.mapper.UserCustomMapper" >
-  <resultMap id="BaseResultMap" type="cn.com.yusys.po.User" >
+  <resultMap id="BaseResultMap" type="cn.com.yusys.po.UserCustom" >
     <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="label" property="label" jdbcType="VARCHAR" />
+    <result column="pinyin" property="pinyin" jdbcType="VARCHAR" />
     <result column="section" property="section" jdbcType="VARCHAR" />
     <result column="post" property="post" jdbcType="VARCHAR" />
     <result column="specialty" property="specialty" jdbcType="VARCHAR" />
     <result column="manager_id" property="managerId" jdbcType="VARCHAR" />
     <result column="manager_name" property="managerName" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="id" property="key" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, section, post, specialty, manager_id, manager_name, state
+    id, label, pinyin, section, post, specialty, manager_id, manager_name, state
   </sql>
   <select id="selectAllUser" resultMap="BaseResultMap"  >
     select 

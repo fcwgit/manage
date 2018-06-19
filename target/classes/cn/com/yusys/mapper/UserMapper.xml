@@ -3,7 +3,8 @@
 <mapper namespace="cn.com.yusys.mapper.UserMapper" >
   <resultMap id="BaseResultMap" type="cn.com.yusys.po.User" >
     <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="label" property="label" jdbcType="VARCHAR" />
+    <result column="pinyin" property="pinyin" jdbcType="VARCHAR" />
     <result column="section" property="section" jdbcType="VARCHAR" />
     <result column="post" property="post" jdbcType="VARCHAR" />
     <result column="specialty" property="specialty" jdbcType="VARCHAR" />
@@ -12,7 +13,7 @@
     <result column="state" property="state" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, section, post, specialty, manager_id, manager_name, state
+    id, label, pinyin, section, post, specialty, manager_id, manager_name, state
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -25,12 +26,14 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="cn.com.yusys.po.User" >
-    insert into user (id, name, section, 
-      post, specialty, manager_id, 
-      manager_name, state)
-    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{section,jdbcType=VARCHAR}, 
-      #{post,jdbcType=VARCHAR}, #{specialty,jdbcType=VARCHAR}, #{managerId,jdbcType=VARCHAR}, 
-      #{managerName,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR})
+    insert into user (id, label, pinyin, 
+      section, post, specialty, 
+      manager_id, manager_name, state
+      )
+    values (#{id,jdbcType=VARCHAR}, #{label,jdbcType=VARCHAR}, #{pinyin,jdbcType=VARCHAR}, 
+      #{section,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR}, #{specialty,jdbcType=VARCHAR}, 
+      #{managerId,jdbcType=VARCHAR}, #{managerName,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.com.yusys.po.User" >
     insert into user
@@ -38,8 +41,11 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="name != null" >
-        name,
+      <if test="label != null" >
+        label,
+      </if>
+      <if test="pinyin != null" >
+        pinyin,
       </if>
       <if test="section != null" >
         section,
@@ -64,8 +70,11 @@
       <if test="id != null" >
         #{id,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="label != null" >
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyin != null" >
+        #{pinyin,jdbcType=VARCHAR},
       </if>
       <if test="section != null" >
         #{section,jdbcType=VARCHAR},
@@ -90,8 +99,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="cn.com.yusys.po.User" >
     update user
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="label != null" >
+        label = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyin != null" >
+        pinyin = #{pinyin,jdbcType=VARCHAR},
       </if>
       <if test="section != null" >
         section = #{section,jdbcType=VARCHAR},
@@ -116,7 +128,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.com.yusys.po.User" >
     update user
-    set name = #{name,jdbcType=VARCHAR},
+    set label = #{label,jdbcType=VARCHAR},
+      pinyin = #{pinyin,jdbcType=VARCHAR},
       section = #{section,jdbcType=VARCHAR},
       post = #{post,jdbcType=VARCHAR},
       specialty = #{specialty,jdbcType=VARCHAR},
