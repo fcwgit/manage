@@ -28,6 +28,14 @@
     <!--类型转换-->
     <mvc:annotation-driven conversion-service="conversionService"/>
     <!--<mvc:annotation-driven/>-->
+    
+    
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="cn.com.yusys.interceptor.AllowOriginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <!--视图解析器
         解析jsp视图，默认使用jstl标签，classpath需要含有jstl包
@@ -70,6 +78,8 @@
         <!--对资源文件内容缓存时间，单位秒-->
         <property name="cacheSeconds" value="120"/>
     </bean>
+
+    
 </beans>
 
 
