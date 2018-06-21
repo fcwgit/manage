@@ -61,9 +61,17 @@ public class LoginController {
             response.setHead(head);
             return response;
         }
-        if (MD5Util.MD5(manager.getPassword()).equals(MD5Util.MD5(request.getPassword()))){
+        if (manager.getPassword().equals(MD5Util.MD5(request.getPassword()))){
             //登录成功
             session.setAttribute(session.getId(),manager);
+            //判断是否需要强制修改密码
+            if (manager.getState().equals("1")){
+                head.setErrorCode("100004");
+                head.setErrorMessage(ErrorUtil.getMessage("100004"));
+                response.setHead(head);
+                return response;
+            }
+
             head.setErrorCode("000000");
             response.setHead(head);
 
@@ -71,6 +79,7 @@ public class LoginController {
             HashMap<String,Object> objectHashMap = new HashMap<>();
             //检查对象优先级
             objectHashMap.put("branch_rate", DictUtil.getDict("branch_rate"));
+            objectHashMap.put("manager_type",DictUtil.getDict("manager_type"));
 
             objectHashMap.put("worker",userService.getAllUser());
 
@@ -112,6 +121,8 @@ public class LoginController {
             branchArrayList.add(branch4);
 
             objectHashMap.put("target",branchArrayList);
+            objectHashMap.put("alias",manager.getAlias());
+            objectHashMap.put("name",manager.getName());
             response.setBody(objectHashMap);
             return response;
         }else {
@@ -128,12 +139,37 @@ public class LoginController {
     }
 
     @RequestMapping("/logout")
-    public @ResponseBody Manager logout(HttpSession session) throws Exception{
+    public @ResponseBody Response logout(HttpSession session) throws Exception{
         session.invalidate();
 
         Manager manager = new Manager();
         //设置跳转到登录页面
         //manager.setURL
-        return manager;
+        return null;
+    }
+
+    @RequestMapping("/resetPassword")
+    public @ResponseBody Response resetPassword(HttpSession session,@RequestBody Request request)throws Exception{
+        Manager manager = (Manager)session.getAttribute(session.getId());
+
+        Head head = new Head();
+        Response response = new Response();
+
+        if(null == manager){
+            head.setErrorCode("100006");
+            head.setErrorMessage(ErrorUtil.getMessage("100005"));
+            session.invalidate();
+        }else if (manager.getPassword().equals(MD5Util.MD5(request.getOldPassword()))){
+            head.setErrorCode("000000");
+            manager.setPassword(MD5Util.MD5(request.getNewPassword()));
+            manager.setState("0");
+            managerService.updateByPrimaryKey(manager);
+            session.invalidate();
+        }else {
+            head.setErrorCode("100005");
+            head.setErrorMessage(ErrorUtil.getMessage("100005"));
+        }
+        response.setHead(head);
+        return response;
     }
 }

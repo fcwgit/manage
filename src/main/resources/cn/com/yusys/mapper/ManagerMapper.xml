@@ -3,15 +3,18 @@
 <mapper namespace="cn.com.yusys.mapper.ManagerMapper" >
   <resultMap id="BaseResultMap" type="cn.com.yusys.po.Manager" >
     <id column="name" property="name" jdbcType="VARCHAR" />
+    <result column="alias" property="alias" jdbcType="VARCHAR" />
     <result column="section" property="section" jdbcType="VARCHAR" />
     <result column="post" property="post" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="number" property="number" jdbcType="INTEGER" />
     <result column="date" property="date" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    name, section, post, password, type, number, date
+    name, alias, section, post, password, type, number, date, state, author
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -24,18 +27,23 @@
     where name = #{name,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="cn.com.yusys.po.Manager" >
-    insert into manager (name, section, post, 
-      password, type, number, 
-      date)
-    values (#{name,jdbcType=VARCHAR}, #{section,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, 
-      #{date,jdbcType=VARCHAR})
+    insert into manager (name, alias, section, 
+      post, password, type, 
+      number, date, state, 
+      author)
+    values (#{name,jdbcType=VARCHAR}, #{alias,jdbcType=VARCHAR}, #{section,jdbcType=VARCHAR}, 
+      #{post,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{number,jdbcType=INTEGER}, #{date,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.com.yusys.po.Manager" >
     insert into manager
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="name != null" >
         name,
+      </if>
+      <if test="alias != null" >
+        alias,
       </if>
       <if test="section != null" >
         section,
@@ -55,10 +63,19 @@
       <if test="date != null" >
         date,
       </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="alias != null" >
+        #{alias,jdbcType=VARCHAR},
       </if>
       <if test="section != null" >
         #{section,jdbcType=VARCHAR},
@@ -78,11 +95,20 @@
       <if test="date != null" >
         #{date,jdbcType=VARCHAR},
       </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.com.yusys.po.Manager" >
     update manager
     <set >
+      <if test="alias != null" >
+        alias = #{alias,jdbcType=VARCHAR},
+      </if>
       <if test="section != null" >
         section = #{section,jdbcType=VARCHAR},
       </if>
@@ -101,17 +127,26 @@
       <if test="date != null" >
         date = #{date,jdbcType=VARCHAR},
       </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
     </set>
     where name = #{name,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.com.yusys.po.Manager" >
     update manager
-    set section = #{section,jdbcType=VARCHAR},
+    set alias = #{alias,jdbcType=VARCHAR},
+      section = #{section,jdbcType=VARCHAR},
       post = #{post,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       type = #{type,jdbcType=VARCHAR},
       number = #{number,jdbcType=INTEGER},
-      date = #{date,jdbcType=VARCHAR}
+      date = #{date,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR}
     where name = #{name,jdbcType=VARCHAR}
   </update>
 </mapper>

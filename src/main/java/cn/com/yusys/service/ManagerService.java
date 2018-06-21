@@ -6,4 +6,6 @@ public interface ManagerService {
     public Manager findManagerById(String id)throws Exception;
 
     public void updateByPrimaryKey(Manager manager)throws Exception;
+
+    public int insertManager(Manager manager)throws Exception;
 }

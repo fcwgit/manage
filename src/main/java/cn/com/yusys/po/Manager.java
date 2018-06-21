@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class Manager implements Serializable {
     private String name;
 
+    private String alias;
+
     private String section;
 
     private String post;
@@ -17,6 +19,10 @@ public class Manager implements Serializable {
 
     private String date;
 
+    private String state;
+
+    private String author;
+
     private static final long serialVersionUID = 1L;
 
     public String getName() {
@@ -25,6 +31,14 @@ public class Manager implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias == null ? null : alias.trim();
     }
 
     public String getSection() {
@@ -73,5 +87,21 @@ public class Manager implements Serializable {
 
     public void setDate(String date) {
         this.date = date == null ? null : date.trim();
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state == null ? null : state.trim();
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author == null ? null : author.trim();
     }
 }

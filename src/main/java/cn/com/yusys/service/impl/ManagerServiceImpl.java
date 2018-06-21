@@ -17,4 +17,9 @@ public class ManagerServiceImpl implements ManagerService{
     public void updateByPrimaryKey(Manager manager) throws Exception {
         managerMapper.updateByPrimaryKey(manager);
     }
+
+    @Override
+    public int insertManager(Manager manager) throws Exception {
+        return managerMapper.insertSelective(manager);
+    }
 }

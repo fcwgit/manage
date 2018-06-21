@@ -13,42 +13,19 @@ public class AllowOriginInterceptor implements HandlerInterceptor{
     //切面编程：Handler执行之前执行
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
-
-
-
-        //跨域
-        httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
-
-
-        //跨域 Header
-
-        httpServletResponse.setHeader("Access-Control-Allow-Methods", "*");
-
-        httpServletResponse.setHeader("Access-Control-Allow-Headers", "Content-Type,XFILENAME,XFILECATEGORY,XFILESIZE");
-
-
+        httpServletResponse.setHeader("Access-Control-Allow-Origin", "http://localhost:8081");
+        httpServletResponse.setHeader("Access-Control-Allow-Headers", "Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild, x-access-token");
+        httpServletResponse.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS");
+        httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
 
         // 浏览器是会先发一次options请求，如果请求通过，则继续发送正式的post请求
-
         // 配置options的请求返回
-
         if (httpServletRequest.getMethod().equals("OPTIONS")) {
 
             httpServletResponse.setStatus(200);
 
-            // hresp.setContentLength(0);
-
             httpServletResponse.getWriter().write("OPTIONS returns OK");
-
-
         }
-
-
-
-
-
-
 
         return true;
     }
