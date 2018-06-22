@@ -4,10 +4,7 @@ import cn.com.yusys.po.Branch;
 import cn.com.yusys.po.Manager;
 import cn.com.yusys.service.ManagerService;
 import cn.com.yusys.service.UserService;
-import cn.com.yusys.util.DictUtil;
-import cn.com.yusys.util.ErrorUtil;
-import cn.com.yusys.util.MD5Util;
-import cn.com.yusys.util.AppUtil;
+import cn.com.yusys.util.*;
 import cn.com.yusys.vo.Head;
 import cn.com.yusys.vo.Request;
 import cn.com.yusys.vo.Response;
@@ -123,6 +120,7 @@ public class LoginController {
             objectHashMap.put("target",branchArrayList);
             objectHashMap.put("alias",manager.getAlias());
             objectHashMap.put("name",manager.getName());
+            objectHashMap.put("pageSize", ParamUtil.get("page_size"));
             response.setBody(objectHashMap);
             return response;
         }else {
@@ -163,7 +161,7 @@ public class LoginController {
             head.setErrorCode("000000");
             manager.setPassword(MD5Util.MD5(request.getNewPassword()));
             manager.setState("0");
-            managerService.updateByPrimaryKey(manager);
+            managerService.updateByPrimaryKeySelective(manager);
             session.invalidate();
         }else {
             head.setErrorCode("100005");

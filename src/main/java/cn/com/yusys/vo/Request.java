@@ -13,6 +13,25 @@ public class Request implements Serializable{
     private String alias;
     private String section;
     private String post;
+    private String type;
+    private String state;
+    private String currentPage;
+
+    public String getCurrentPage() {
+        return currentPage;
+    }
+
+    public void setCurrentPage(String currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 
     public String getType() {
         return type;
@@ -21,8 +40,6 @@ public class Request implements Serializable{
     public void setType(String type) {
         this.type = type;
     }
-
-    private String type;
 
     public String getAlias() {
         return alias;

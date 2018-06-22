@@ -14,6 +14,16 @@ public class DictUtil {
         return dict.get(type);
     }
 
+    public static String getValue(String type,String code){
+        List<Option> optionList = DictUtil.getDict(type);
+        for (Option option:optionList){
+            if (option.getKey().equals(code)){
+                return option.getValue();
+            }
+        }
+        return "";
+    }
+
     public static void put(DictCustom dictCustom){
         List<Option> optionList = dict.get(dictCustom.getType());
         if (null == optionList){

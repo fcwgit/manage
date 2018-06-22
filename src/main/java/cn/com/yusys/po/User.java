@@ -1,11 +1,12 @@
 package cn.com.yusys.po;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class User implements Serializable {
     private String id;
 
-    private String label;
+    private String name;
 
     private String pinyin;
 
@@ -15,11 +16,11 @@ public class User implements Serializable {
 
     private String specialty;
 
-    private String managerId;
-
-    private String managerName;
+    private String author;
 
     private String state;
+
+    private Date time;
 
     private static final long serialVersionUID = 1L;
 
@@ -31,12 +32,12 @@ public class User implements Serializable {
         this.id = id == null ? null : id.trim();
     }
 
-    public String getLabel() {
-        return label;
+    public String getName() {
+        return name;
     }
 
-    public void setLabel(String label) {
-        this.label = label == null ? null : label.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public String getPinyin() {
@@ -71,20 +72,12 @@ public class User implements Serializable {
         this.specialty = specialty == null ? null : specialty.trim();
     }
 
-    public String getManagerId() {
-        return managerId;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setManagerId(String managerId) {
-        this.managerId = managerId == null ? null : managerId.trim();
-    }
-
-    public String getManagerName() {
-        return managerName;
-    }
-
-    public void setManagerName(String managerName) {
-        this.managerName = managerName == null ? null : managerName.trim();
+    public void setAuthor(String author) {
+        this.author = author == null ? null : author.trim();
     }
 
     public String getState() {
@@ -93,5 +86,13 @@ public class User implements Serializable {
 
     public void setState(String state) {
         this.state = state == null ? null : state.trim();
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }

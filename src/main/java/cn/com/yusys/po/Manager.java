@@ -1,6 +1,10 @@
 package cn.com.yusys.po;
 
+import cn.com.yusys.util.DictUtil;
+
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 public class Manager implements Serializable {
     private String name;
@@ -22,6 +26,8 @@ public class Manager implements Serializable {
     private String state;
 
     private String author;
+
+    private Date time;
 
     private static final long serialVersionUID = 1L;
 
@@ -103,5 +109,13 @@ public class Manager implements Serializable {
 
     public void setAuthor(String author) {
         this.author = author == null ? null : author.trim();
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }
