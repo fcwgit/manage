@@ -17,6 +17,62 @@ public class Request implements Serializable{
     private String state;
     private String currentPage;
 
+    private String pinyin;
+    private String specialty;
+    private String key;
+
+    private String num;
+    private String master;
+    private String slaver;
+
+    public String getNum() {
+        return num;
+    }
+
+    public void setNum(String num) {
+        this.num = num;
+    }
+
+    public String getMaster() {
+        return master;
+    }
+
+    public void setMaster(String master) {
+        this.master = master;
+    }
+
+    public String getSlaver() {
+        return slaver;
+    }
+
+    public void setSlaver(String slaver) {
+        this.slaver = slaver;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getPinyin() {
+        return pinyin;
+    }
+
+    public void setPinyin(String pinyin) {
+        this.pinyin = pinyin;
+    }
+
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
+    }
+
     public String getCurrentPage() {
         return currentPage;
     }

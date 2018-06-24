@@ -12,7 +12,7 @@ public class Branch implements Serializable {
 
     private String slaver;
 
-    private String name;
+    private String label;
 
     private String state;
 
@@ -54,12 +54,12 @@ public class Branch implements Serializable {
         this.slaver = slaver == null ? null : slaver.trim();
     }
 
-    public String getName() {
-        return name;
+    public String getLabel() {
+        return label;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setLabel(String label) {
+        this.label = label == null ? null : label.trim();
     }
 
     public String getState() {

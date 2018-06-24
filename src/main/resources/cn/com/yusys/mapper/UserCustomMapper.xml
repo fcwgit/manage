@@ -20,7 +20,7 @@
     <!--使用动态SQL，通过if判断，满足条件进行SQL拼接-->
     <!--商品查询条件通过ItemQueryVo包装对象中itemsCustom属性传递-->
     <if test="pinyin!=null">
-      name LIKE '%${pinyin}%'
+      pinyin LIKE '%${pinyin}%'
     </if>
   </sql>
   <select id="selectAllUser" resultMap="BaseResultMap"  >
@@ -31,7 +31,9 @@
       <include refid="query_pinyin_where" />
     </where>
     ORDER BY time
-    limit #{startRow},#{endRow}
+    <if test="startRow!=null">
+      limit #{startRow},#{endRow}
+    </if>
   </select>
 
   <select id="selectCount" resultType="int" parameterType="java.util.HashMap">

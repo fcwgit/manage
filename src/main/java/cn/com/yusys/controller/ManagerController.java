@@ -1,10 +1,7 @@
 package cn.com.yusys.controller;
 
 import cn.com.yusys.po.Manager;
-import cn.com.yusys.po.Param;
 import cn.com.yusys.service.ManagerService;
-import cn.com.yusys.util.AppUtil;
-import cn.com.yusys.util.ErrorUtil;
 import cn.com.yusys.util.MD5Util;
 import cn.com.yusys.util.ParamUtil;
 import cn.com.yusys.vo.Head;
@@ -17,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import javax.xml.registry.QueryManager;
 import java.util.HashMap;
-import java.util.List;
 
 @Controller
 public class ManagerController {
@@ -68,11 +63,16 @@ public class ManagerController {
             name = request.getName();
         }
         parmas.put("name",name);
-        parmas.put("startRow",Integer.valueOf(((Integer.parseInt(currentPage)-1)*Integer.parseInt(pageSize))));
+        int startRow = Integer.valueOf(((Integer.parseInt(currentPage)-1)*Integer.parseInt(pageSize)));
+        int count = managerService.selectCount(parmas);
+        if(startRow>=count){
+            startRow = 0;
+        }
+        parmas.put("startRow",startRow);
         parmas.put("endRow",Integer.valueOf(pageSize));
 
         objectHashMap.put("managerList",managerService.queryAllManager(parmas));
-        objectHashMap.put("count",managerService.selectCount(parmas));
+        objectHashMap.put("count",count);
 
         response.setBody(objectHashMap);
         return response;

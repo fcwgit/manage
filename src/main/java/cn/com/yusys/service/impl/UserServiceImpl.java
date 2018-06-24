@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> queryAllUser(HashMap map) throws Exception {
+    public List<User> selectAllUser(HashMap map) throws Exception {
         return userCustomMapper.selectAllUser(map);
     }
 

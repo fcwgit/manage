@@ -17,6 +17,6 @@ public class test {
         BranchMapper branchMapper = sqlSession.getMapper(BranchMapper.class);
 
         Branch branch = branchMapper.selectByPrimaryKey("1");
-        System.out.println(branch.getName());
+        System.out.println(branch.getLabel());
     }
 }

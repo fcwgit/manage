@@ -13,7 +13,7 @@ public interface UserService {
 
     public int insertUser(User user)throws Exception;
 
-    public List<User> queryAllUser(HashMap map)throws Exception;
+    public List<User> selectAllUser(HashMap map)throws Exception;
 
     public int selectCount(HashMap map)throws Exception;
 }

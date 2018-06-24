@@ -77,47 +77,11 @@ public class LoginController {
             //检查对象优先级
             objectHashMap.put("branch_rate", DictUtil.getDict("branch_rate"));
             objectHashMap.put("manager_type",DictUtil.getDict("manager_type"));
+            objectHashMap.put("branch_master_type",DictUtil.getDict("branch_master_type"));
+                objectHashMap.put("branch_slaver_type",DictUtil.getDict("branch_slaver_type"));
 
-            objectHashMap.put("worker",userService.getAllUser());
+            objectHashMap.put("worker",userService.selectAllUser(new HashMap<>()));
 
-
-
-            //target.put()
-            ArrayList<Branch> branchArrayList = new ArrayList<>();
-            Branch branch1 = new Branch();
-            branch1.setId("100001");
-            branch1.setNum("100000001");
-            branch1.setMaster("国有");
-            branch1.setSlaver("分行");
-            branch1.setName("工商银行北京分行");
-
-            Branch branch2 = new Branch();
-            branch2.setId("100002");
-            branch2.setNum("100000002");
-            branch2.setMaster("国有");
-            branch2.setSlaver("分行");
-            branch2.setName("交通银行北京分行");
-
-            Branch branch3 = new Branch();
-            branch3.setId("100003");
-            branch3.setNum("100000003");
-            branch3.setMaster("城商行");
-            branch3.setSlaver("法人");
-            branch3.setName("齐鲁银行");
-
-            Branch branch4 = new Branch();
-            branch4.setId("100004");
-            branch4.setNum("100000004");
-            branch4.setMaster("城商行");
-            branch4.setSlaver("法人");
-            branch4.setName("北京农商银行");
-
-            branchArrayList.add(branch1);
-            branchArrayList.add(branch2);
-            branchArrayList.add(branch3);
-            branchArrayList.add(branch4);
-
-            objectHashMap.put("target",branchArrayList);
             objectHashMap.put("alias",manager.getAlias());
             objectHashMap.put("name",manager.getName());
             objectHashMap.put("pageSize", ParamUtil.get("page_size"));

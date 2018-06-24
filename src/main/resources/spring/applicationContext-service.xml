@@ -18,6 +18,7 @@
     <!--定义管理员的Service-->
     <bean id="itemsService" class="cn.com.yusys.service.impl.ManagerServiceImpl"/>
     <bean id="userService" class="cn.com.yusys.service.impl.UserServiceImpl"/>
+    <bean id="branchService" class="cn.com.yusys.service.impl.BranchServiceImpl"/>
 </beans>
 
 

@@ -6,13 +6,13 @@
     <result column="num" property="num" jdbcType="VARCHAR" />
     <result column="master" property="master" jdbcType="VARCHAR" />
     <result column="slaver" property="slaver" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="label" property="label" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="VARCHAR" />
     <result column="author" property="author" jdbcType="VARCHAR" />
     <result column="time" property="time" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, num, master, slaver, name, state, author, time
+    id, num, master, slaver, label, state, author, time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -26,10 +26,10 @@
   </delete>
   <insert id="insert" parameterType="cn.com.yusys.po.Branch" >
     insert into branch (id, num, master, 
-      slaver, name, state, 
+      slaver, label, state, 
       author, time)
     values (#{id,jdbcType=VARCHAR}, #{num,jdbcType=VARCHAR}, #{master,jdbcType=VARCHAR}, 
-      #{slaver,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{slaver,jdbcType=VARCHAR}, #{label,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
       #{author,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.com.yusys.po.Branch" >
@@ -47,8 +47,8 @@
       <if test="slaver != null" >
         slaver,
       </if>
-      <if test="name != null" >
-        name,
+      <if test="label != null" >
+        label,
       </if>
       <if test="state != null" >
         state,
@@ -73,8 +73,8 @@
       <if test="slaver != null" >
         #{slaver,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="label != null" >
+        #{label,jdbcType=VARCHAR},
       </if>
       <if test="state != null" >
         #{state,jdbcType=VARCHAR},
@@ -99,8 +99,8 @@
       <if test="slaver != null" >
         slaver = #{slaver,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="label != null" >
+        label = #{label,jdbcType=VARCHAR},
       </if>
       <if test="state != null" >
         state = #{state,jdbcType=VARCHAR},
@@ -119,7 +119,7 @@
     set num = #{num,jdbcType=VARCHAR},
       master = #{master,jdbcType=VARCHAR},
       slaver = #{slaver,jdbcType=VARCHAR},
-      name = #{name,jdbcType=VARCHAR},
+      label = #{label,jdbcType=VARCHAR},
       state = #{state,jdbcType=VARCHAR},
       author = #{author,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP}
