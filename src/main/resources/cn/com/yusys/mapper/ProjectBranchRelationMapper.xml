@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.yusys.mapper.ProjectBranchRelationMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.yusys.po.ProjectBranchRelation" >
+    <id column="project_id" property="projectId" jdbcType="VARCHAR" />
+    <id column="branch_id" property="branchId" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="VARCHAR" />
+    <result column="label" property="label" jdbcType="VARCHAR" />
+    <result column="master" property="master" jdbcType="VARCHAR" />
+    <result column="masterDisplay" property="masterdisplay" jdbcType="VARCHAR" />
+    <result column="slaver" property="slaver" jdbcType="VARCHAR" />
+    <result column="slaverDisplay" property="slaverdisplay" jdbcType="VARCHAR" />
+    <result column="opt" property="opt" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="deleter" property="deleter" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    project_id, branch_id, num, label, master, masterDisplay, slaver, slaverDisplay, 
+    opt, time, author, deleter
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="cn.com.yusys.po.ProjectBranchRelationKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from project_branch_relation
+    where project_id = #{projectId,jdbcType=VARCHAR}
+      and branch_id = #{branchId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="cn.com.yusys.po.ProjectBranchRelationKey" >
+    delete from project_branch_relation
+    where project_id = #{projectId,jdbcType=VARCHAR}
+      and branch_id = #{branchId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.yusys.po.ProjectBranchRelation" >
+    insert into project_branch_relation (project_id, branch_id, num, 
+      label, master, masterDisplay, 
+      slaver, slaverDisplay, opt, 
+      time, author, deleter
+      )
+    values (#{projectId,jdbcType=VARCHAR}, #{branchId,jdbcType=VARCHAR}, #{num,jdbcType=VARCHAR}, 
+      #{label,jdbcType=VARCHAR}, #{master,jdbcType=VARCHAR}, #{masterdisplay,jdbcType=VARCHAR}, 
+      #{slaver,jdbcType=VARCHAR}, #{slaverdisplay,jdbcType=VARCHAR}, #{opt,jdbcType=VARCHAR}, 
+      #{time,jdbcType=TIMESTAMP}, #{author,jdbcType=VARCHAR}, #{deleter,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.yusys.po.ProjectBranchRelation" >
+    insert into project_branch_relation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="branchId != null" >
+        branch_id,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="label != null" >
+        label,
+      </if>
+      <if test="master != null" >
+        master,
+      </if>
+      <if test="masterdisplay != null" >
+        masterDisplay,
+      </if>
+      <if test="slaver != null" >
+        slaver,
+      </if>
+      <if test="slaverdisplay != null" >
+        slaverDisplay,
+      </if>
+      <if test="opt != null" >
+        opt,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="deleter != null" >
+        deleter,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null" >
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="master != null" >
+        #{master,jdbcType=VARCHAR},
+      </if>
+      <if test="masterdisplay != null" >
+        #{masterdisplay,jdbcType=VARCHAR},
+      </if>
+      <if test="slaver != null" >
+        #{slaver,jdbcType=VARCHAR},
+      </if>
+      <if test="slaverdisplay != null" >
+        #{slaverdisplay,jdbcType=VARCHAR},
+      </if>
+      <if test="opt != null" >
+        #{opt,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="deleter != null" >
+        #{deleter,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.yusys.po.ProjectBranchRelation" >
+    update project_branch_relation
+    <set >
+      <if test="num != null" >
+        num = #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null" >
+        label = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="master != null" >
+        master = #{master,jdbcType=VARCHAR},
+      </if>
+      <if test="masterdisplay != null" >
+        masterDisplay = #{masterdisplay,jdbcType=VARCHAR},
+      </if>
+      <if test="slaver != null" >
+        slaver = #{slaver,jdbcType=VARCHAR},
+      </if>
+      <if test="slaverdisplay != null" >
+        slaverDisplay = #{slaverdisplay,jdbcType=VARCHAR},
+      </if>
+      <if test="opt != null" >
+        opt = #{opt,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="deleter != null" >
+        deleter = #{deleter,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where project_id = #{projectId,jdbcType=VARCHAR}
+      and branch_id = #{branchId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.yusys.po.ProjectBranchRelation" >
+    update project_branch_relation
+    set num = #{num,jdbcType=VARCHAR},
+      label = #{label,jdbcType=VARCHAR},
+      master = #{master,jdbcType=VARCHAR},
+      masterDisplay = #{masterdisplay,jdbcType=VARCHAR},
+      slaver = #{slaver,jdbcType=VARCHAR},
+      slaverDisplay = #{slaverdisplay,jdbcType=VARCHAR},
+      opt = #{opt,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP},
+      author = #{author,jdbcType=VARCHAR},
+      deleter = #{deleter,jdbcType=VARCHAR}
+    where project_id = #{projectId,jdbcType=VARCHAR}
+      and branch_id = #{branchId,jdbcType=VARCHAR}
+  </update>
+</mapper>

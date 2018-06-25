@@ -12,6 +12,7 @@
     <result column="state" property="state" jdbcType="VARCHAR" />
     <result column="time" property="time" jdbcType="TIMESTAMP" />
     <result column="id" property="key" jdbcType="VARCHAR" />
+    <result column="name" property="label" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, name, pinyin, section, post, specialty, author, state, time
@@ -23,7 +24,7 @@
       pinyin LIKE '%${pinyin}%'
     </if>
   </sql>
-  <select id="selectAllUser" resultMap="BaseResultMap"  >
+  <select id="selectAllUser" resultMap="BaseResultMap" parameterType="java.util.HashMap">
     select 
     <include refid="Base_Column_List" />
     from user

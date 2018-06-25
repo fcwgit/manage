@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.yusys.mapper.ProjectFileRelationMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.yusys.po.ProjectFileRelationKey" >
+    <id column="project_id" property="projectId" jdbcType="VARCHAR" />
+    <id column="file_id" property="fileId" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="cn.com.yusys.po.ProjectFileRelationKey" >
+    delete from project_file_relation
+    where project_id = #{projectId,jdbcType=VARCHAR}
+      and file_id = #{fileId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.yusys.po.ProjectFileRelationKey" >
+    insert into project_file_relation (project_id, file_id)
+    values (#{projectId,jdbcType=VARCHAR}, #{fileId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.yusys.po.ProjectFileRelationKey" >
+    insert into project_file_relation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="fileId != null" >
+        file_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileId != null" >
+        #{fileId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

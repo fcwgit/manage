@@ -6,17 +6,17 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="VARCHAR" />
     <result column="date" property="date" jdbcType="VARCHAR" />
-    <result column="manager_id" property="managerId" jdbcType="VARCHAR" />
-    <result column="manager_name" property="managerName" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="cn.com.yusys.po.Project" extends="BaseResultMap" >
-    <result column="desc" property="desc" jdbcType="LONGVARCHAR" />
+    <result column="des" property="des" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, state, date, manager_id, manager_name
+    id, name, state, date, author, time
   </sql>
   <sql id="Blob_Column_List" >
-    desc
+    des
   </sql>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
     select 
@@ -32,11 +32,11 @@
   </delete>
   <insert id="insert" parameterType="cn.com.yusys.po.Project" >
     insert into project (id, name, state, 
-      date, manager_id, manager_name, 
-      desc)
+      date, author, time, 
+      des)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
-      #{date,jdbcType=VARCHAR}, #{managerId,jdbcType=VARCHAR}, #{managerName,jdbcType=VARCHAR}, 
-      #{desc,jdbcType=LONGVARCHAR})
+      #{date,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
+      #{des,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.com.yusys.po.Project" >
     insert into project
@@ -53,14 +53,14 @@
       <if test="date != null" >
         date,
       </if>
-      <if test="managerId != null" >
-        manager_id,
+      <if test="author != null" >
+        author,
       </if>
-      <if test="managerName != null" >
-        manager_name,
+      <if test="time != null" >
+        time,
       </if>
-      <if test="desc != null" >
-        desc,
+      <if test="des != null" >
+        des,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -76,14 +76,14 @@
       <if test="date != null" >
         #{date,jdbcType=VARCHAR},
       </if>
-      <if test="managerId != null" >
-        #{managerId,jdbcType=VARCHAR},
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
       </if>
-      <if test="managerName != null" >
-        #{managerName,jdbcType=VARCHAR},
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
       </if>
-      <if test="desc != null" >
-        #{desc,jdbcType=LONGVARCHAR},
+      <if test="des != null" >
+        #{des,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -99,14 +99,14 @@
       <if test="date != null" >
         date = #{date,jdbcType=VARCHAR},
       </if>
-      <if test="managerId != null" >
-        manager_id = #{managerId,jdbcType=VARCHAR},
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
       </if>
-      <if test="managerName != null" >
-        manager_name = #{managerName,jdbcType=VARCHAR},
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
       </if>
-      <if test="desc != null" >
-        desc = #{desc,jdbcType=LONGVARCHAR},
+      <if test="des != null" >
+        des = #{des,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
@@ -116,9 +116,9 @@
     set name = #{name,jdbcType=VARCHAR},
       state = #{state,jdbcType=VARCHAR},
       date = #{date,jdbcType=VARCHAR},
-      manager_id = #{managerId,jdbcType=VARCHAR},
-      manager_name = #{managerName,jdbcType=VARCHAR},
-      desc = #{desc,jdbcType=LONGVARCHAR}
+      author = #{author,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP},
+      des = #{des,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.com.yusys.po.Project" >
@@ -126,8 +126,8 @@
     set name = #{name,jdbcType=VARCHAR},
       state = #{state,jdbcType=VARCHAR},
       date = #{date,jdbcType=VARCHAR},
-      manager_id = #{managerId,jdbcType=VARCHAR},
-      manager_name = #{managerName,jdbcType=VARCHAR}
+      author = #{author,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

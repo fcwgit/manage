@@ -1,5 +1,8 @@
 package cn.com.yusys.vo;
 
+import cn.com.yusys.po.BranchCustom;
+import cn.com.yusys.po.UserCustom;
+
 import java.io.Serializable;
 
 public class Request implements Serializable{
@@ -24,6 +27,45 @@ public class Request implements Serializable{
     private String num;
     private String master;
     private String slaver;
+
+    private BranchCustom[] target;
+    private UserCustom[] leader;
+
+    public UserCustom[] getLeader() {
+        return leader;
+    }
+
+    public void setLeader(UserCustom[] leader) {
+        this.leader = leader;
+    }
+
+    public BranchCustom[] getTarget() {
+        return target;
+    }
+
+    public void setTarget(BranchCustom[] target) {
+        this.target = target;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
+    }
+
+    private String des;
+    private String date;
+
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getNum() {
         return num;

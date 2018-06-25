@@ -1,6 +1,7 @@
 package cn.com.yusys.po;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Project implements Serializable {
     private String id;
@@ -11,11 +12,11 @@ public class Project implements Serializable {
 
     private String date;
 
-    private String managerId;
+    private String author;
 
-    private String managerName;
+    private Date time;
 
-    private String desc;
+    private String des;
 
     private static final long serialVersionUID = 1L;
 
@@ -51,27 +52,27 @@ public class Project implements Serializable {
         this.date = date == null ? null : date.trim();
     }
 
-    public String getManagerId() {
-        return managerId;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setManagerId(String managerId) {
-        this.managerId = managerId == null ? null : managerId.trim();
+    public void setAuthor(String author) {
+        this.author = author == null ? null : author.trim();
     }
 
-    public String getManagerName() {
-        return managerName;
+    public Date getTime() {
+        return time;
     }
 
-    public void setManagerName(String managerName) {
-        this.managerName = managerName == null ? null : managerName.trim();
+    public void setTime(Date time) {
+        this.time = time;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDes() {
+        return des;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setDes(String des) {
+        this.des = des == null ? null : des.trim();
     }
 }

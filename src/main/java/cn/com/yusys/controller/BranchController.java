@@ -36,7 +36,7 @@ public class BranchController {
             if (null == masterNode){
                 masterNode = new BranchMasterNode();
                 masterNode.setId(branch.getMaster());
-                masterNode.setLabel(branch.getMaster());
+                masterNode.setLabel(branch.getMasterDisplay());
                 masterSlaver.put(branch.getMaster(),masterNode);
             }
 

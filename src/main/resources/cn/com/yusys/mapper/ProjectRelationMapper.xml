@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.yusys.mapper.ProjectRelationMapper" >
+
+  <insert id="insertProjectBranchRelationLog" parameterType="java.lang.String" >
+    INSERT INTO project_branch_relation_log(
+      project_id,
+      branch_id,
+      num,
+      label,
+      MASTER,
+      masterDisplay,
+      slaver,
+      slaverDisplay,
+      opt,
+      time,
+      author,
+      deleter
+    )SELECT
+        project_id,
+        branch_id,
+        num,
+        label,
+        MASTER,
+        masterDisplay,
+        slaver,
+        slaverDisplay,
+        opt,
+        time,
+        author,
+        deleter
+    FROM
+        project_branch_relation
+    WHERE
+        project_id = #{projectId,jdbcType=VARCHAR}
+  </insert>
+
+  <update id="updateProjectBranchDeleterByProjectKey" parameterType="cn.com.yusys.po.ProjectBranchRelation">
+    update project_branch_relation
+    set
+    deleter = #{deleter,jdbcType=VARCHAR}
+    where project_id = #{projectId,jdbcType=VARCHAR}
+  </update>
+
+
+  <delete id="deleteBranchByProjectKey" parameterType="java.lang.String" >
+    delete from project_branch_relation
+    where project_id = #{projectId,jdbcType=VARCHAR}
+  </delete>
+
+<!---->
+    <insert id="insertProjectUserRelationLog" parameterType="cn.com.yusys.po.ProjectUserRelation" >
+        INSERT INTO project_user_relation_log(
+            project_id,
+            user_id,
+            type,
+            name,
+            pinyin,
+            section,
+            post,
+            specialty,
+            author,
+            deleter,
+            time
+        )SELECT
+            project_id,
+            user_id,
+            type,
+            name,
+            pinyin,
+            section,
+            post,
+            specialty,
+            author,
+            deleter,
+            time
+        FROM
+          project_user_relation
+        WHERE
+          project_id = #{projectId,jdbcType=VARCHAR}
+        and
+          type=#{type,jdbcType=VARCHAR}
+    </insert>
+
+    <update id="updateProjectUserDeleterByProjectKey" parameterType="cn.com.yusys.po.ProjectUserRelation">
+        update project_user_relation
+        set
+        deleter = #{deleter,jdbcType=VARCHAR}
+        where project_id = #{projectId,jdbcType=VARCHAR} and type=#{type,jdbcType=VARCHAR}
+    </update>
+
+
+    <delete id="deleteUserByProjectKey" parameterType="cn.com.yusys.po.ProjectUserRelation" >
+        delete from project_user_relation
+        where project_id = #{projectId,jdbcType=VARCHAR} and type=#{type,jdbcType=VARCHAR}
+    </delete>
+
+
+</mapper>
