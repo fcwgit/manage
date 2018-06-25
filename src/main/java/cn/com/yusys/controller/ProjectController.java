@@ -211,6 +211,41 @@ public class ProjectController {
 
         return response;
     }
+    @RequestMapping("addLeaderBak")
+    public @ResponseBody Response addLeaderBak(HttpSession session,@RequestBody Request request) throws Exception {
+        Head head = new Head();
+        head.setErrorCode("000000");
+        Response response = new Response();
+        response.setHead(head);
+
+        Manager manager = (Manager) session.getAttribute(session.getId());
+        ProjectUserRelation relation = new ProjectUserRelation();
+        relation.setProjectId(request.getKey());
+        relation.setDeleter(manager.getName());
+        relation.setType("3");
+
+        projectService.updateProjectUserDeleterByProjectKey(relation);
+
+        projectService.insertProjectUserRelationLog(relation);
+        projectService.deleteUserByProjectKey(relation);
+        UserCustom[] branchCustomList = request.getLeader();
+        for (UserCustom userCustom:branchCustomList){
+            ProjectUserRelation projectUserRelation = new ProjectUserRelation();
+            projectUserRelation.setProjectId(request.getKey());
+            projectUserRelation.setUserId(userCustom.getId());
+            projectUserRelation.setType("3");
+            projectUserRelation.setName(userCustom.getName());
+            projectUserRelation.setPinyin(userCustom.getPinyin());
+            projectUserRelation.setSection(userCustom.getSection());
+            projectUserRelation.setPost(userCustom.getPost());
+            projectUserRelation.setSpecialty(userCustom.getSpecialty());
+            projectUserRelation.setAuthor(manager.getName());
+
+            projectService.insertUserRelation(projectUserRelation);
+        }
+
+        return response;
+    }
 
 
     @RequestMapping("addMaster")
@@ -236,6 +271,41 @@ public class ProjectController {
             projectUserRelation.setProjectId(request.getKey());
             projectUserRelation.setUserId(userCustom.getId());
             projectUserRelation.setType("1");
+            projectUserRelation.setName(userCustom.getName());
+            projectUserRelation.setPinyin(userCustom.getPinyin());
+            projectUserRelation.setSection(userCustom.getSection());
+            projectUserRelation.setPost(userCustom.getPost());
+            projectUserRelation.setSpecialty(userCustom.getSpecialty());
+            projectUserRelation.setAuthor(manager.getName());
+
+            projectService.insertUserRelation(projectUserRelation);
+        }
+
+        return response;
+    }
+    @RequestMapping("addMasterBak")
+    public @ResponseBody Response addMasterBak(HttpSession session,@RequestBody Request request) throws Exception {
+        Head head = new Head();
+        head.setErrorCode("000000");
+        Response response = new Response();
+        response.setHead(head);
+
+        Manager manager = (Manager) session.getAttribute(session.getId());
+        ProjectUserRelation relation = new ProjectUserRelation();
+        relation.setProjectId(request.getKey());
+        relation.setDeleter(manager.getName());
+        relation.setType("4");
+
+        projectService.updateProjectUserDeleterByProjectKey(relation);
+
+        projectService.insertProjectUserRelationLog(relation);
+        projectService.deleteUserByProjectKey(relation);
+        UserCustom[] branchCustomList = request.getLeader();
+        for (UserCustom userCustom:branchCustomList){
+            ProjectUserRelation projectUserRelation = new ProjectUserRelation();
+            projectUserRelation.setProjectId(request.getKey());
+            projectUserRelation.setUserId(userCustom.getId());
+            projectUserRelation.setType("4");
             projectUserRelation.setName(userCustom.getName());
             projectUserRelation.setPinyin(userCustom.getPinyin());
             projectUserRelation.setSection(userCustom.getSection());

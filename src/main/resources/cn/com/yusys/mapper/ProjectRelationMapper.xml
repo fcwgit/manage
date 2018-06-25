@@ -96,4 +96,43 @@
     </delete>
 
 
+    <!---->
+    <insert id="insertProjectFileRelationLog" parameterType="java.lang.String" >
+        INSERT INTO project_file_relation_log(
+            project_id,
+            file_id,
+            name,
+            original,
+            path,
+            author,
+            deleter
+        )SELECT
+            project_id,
+            file_id,
+            name,
+            original,
+            path,
+            author,
+            deleter
+        FROM
+          project_file_relation
+        WHERE
+          file_id = #{fileId,jdbcType=VARCHAR}
+    </insert>
+
+    <update id="updateProjectFileDeleterByFileKey" parameterType="cn.com.yusys.po.ProjectFileRelation">
+        update project_file_relation
+        set
+        deleter = #{deleter,jdbcType=VARCHAR}
+        where file_id = #{fileId,jdbcType=VARCHAR}
+    </update>
+
+
+    <delete id="deleteFileByFileKey" parameterType="java.lang.String" >
+        delete from project_file_relation
+        where file_id = #{fileId,jdbcType=VARCHAR}
+    </delete>
+
+
+
 </mapper>

@@ -2,6 +2,7 @@ package cn.com.yusys.service;
 
 import cn.com.yusys.po.Project;
 import cn.com.yusys.po.ProjectBranchRelation;
+import cn.com.yusys.po.ProjectFileRelation;
 import cn.com.yusys.po.ProjectUserRelation;
 
 public interface ProjectService {
@@ -26,4 +27,12 @@ public interface ProjectService {
     public int deleteUserByProjectKey(ProjectUserRelation relation)throws Exception;
 
     public int updateProjectUserDeleterByProjectKey(ProjectUserRelation relation)throws Exception;
+
+
+    public int insertFileRelation(ProjectFileRelation relation)throws Exception;
+    public int insertProjectFileRelationLog(String fileId)throws Exception;
+
+    public int updateProjectFileDeleterByFileKey(ProjectFileRelation relation)throws Exception;
+
+    public int deleteFileByFileKey(String fileId)throws Exception;
 }

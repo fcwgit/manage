@@ -1,11 +1,9 @@
 package cn.com.yusys.service.impl;
 
-import cn.com.yusys.mapper.ProjectBranchRelationMapper;
-import cn.com.yusys.mapper.ProjectMapper;
-import cn.com.yusys.mapper.ProjectRelationMapper;
-import cn.com.yusys.mapper.ProjectUserRelationMapper;
+import cn.com.yusys.mapper.*;
 import cn.com.yusys.po.Project;
 import cn.com.yusys.po.ProjectBranchRelation;
+import cn.com.yusys.po.ProjectFileRelation;
 import cn.com.yusys.po.ProjectUserRelation;
 import cn.com.yusys.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +17,9 @@ public class ProjectServiceImpl implements ProjectService{
     ProjectRelationMapper projectRelationMapper;
     @Autowired
     ProjectUserRelationMapper projectUserRelationMapper;
+
+    @Autowired
+    ProjectFileRelationMapper projectFileRelationMapper;
 
 
     @Override
@@ -64,6 +65,27 @@ public class ProjectServiceImpl implements ProjectService{
     @Override
     public int updateProjectUserDeleterByProjectKey(ProjectUserRelation relation) throws Exception {
         return projectRelationMapper.updateProjectUserDeleterByProjectKey(relation);
+    }
+
+    @Override
+    public int insertFileRelation(ProjectFileRelation relation) throws Exception {
+        return projectFileRelationMapper.insertSelective(relation);
+    }
+
+
+    @Override
+    public int insertProjectFileRelationLog(String fileId) throws Exception {
+        return projectRelationMapper.insertProjectFileRelationLog(fileId);
+    }
+
+    @Override
+    public int updateProjectFileDeleterByFileKey(ProjectFileRelation relation) throws Exception {
+        return projectRelationMapper.updateProjectFileDeleterByFileKey(relation);
+    }
+
+    @Override
+    public int deleteFileByFileKey(String fileId) throws Exception {
+        return projectRelationMapper.deleteFileByFileKey(fileId);
     }
 
 
