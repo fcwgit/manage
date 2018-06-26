@@ -1,9 +1,9 @@
 package cn.com.yusys.service;
 
-import cn.com.yusys.po.Project;
-import cn.com.yusys.po.ProjectBranchRelation;
-import cn.com.yusys.po.ProjectFileRelation;
-import cn.com.yusys.po.ProjectUserRelation;
+import cn.com.yusys.po.*;
+
+import java.util.HashMap;
+import java.util.List;
 
 public interface ProjectService {
     public int insertProject(Project project)throws Exception;
@@ -35,4 +35,18 @@ public interface ProjectService {
     public int updateProjectFileDeleterByFileKey(ProjectFileRelation relation)throws Exception;
 
     public int deleteFileByFileKey(String fileId)throws Exception;
+
+
+    public List<Project> selectAllProject(HashMap map)throws Exception;
+
+    public int selectCount(HashMap map)throws Exception;
+
+
+    public Project selectProjectByPrimaryKey(String id)throws Exception;
+
+    public List<ProjectBranchRelation> selectProjectBranchRelationByProjectKey(String id)throws Exception;
+
+    public List<ProjectUserRelation> selectProjectUserRelationByProjectKey(String id)throws Exception;
+
+    public List<ProjectFileRelation> selectProjectFileRelationByProjectKey(String id)throws Exception;
 }

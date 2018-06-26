@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.yusys.mapper.ProjectCustomMapper1">
+    <resultMap id="BaseResultMap" type="cn.com.yusys.po.ProjectCustom1">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="desc" jdbcType="VARCHAR" property="desc" />
+        <result column="state" jdbcType="VARCHAR" property="state" />
+        <result column="date" jdbcType="VARCHAR" property="date" />
+        <result column="manager_id" jdbcType="VARCHAR" property="managerId" />
+        <result column="manager_name" jdbcType="VARCHAR" property="managerName" />
+        <collection property="branchList" ofType="cn.com.yusys.po.Branch">
+            <id column="branch_id" jdbcType="VARCHAR" property="id" />
+            <result column="branch_name" jdbcType="VARCHAR" property="name" />
+            <result column="branch_num" jdbcType="VARCHAR" property="num" />
+            <result column="branch_master" jdbcType="VARCHAR" property="master" />
+            <result column="branch_slaver" jdbcType="VARCHAR" property="slaver" />
+            <result column="branch_author" jdbcType="VARCHAR" property="author" />
+            <result column="branch_state" jdbcType="VARCHAR" property="state" />
+            <result column="branch_time" jdbcType="VARCHAR" property="time" />
+        </collection>
+        <collection property="userList" ofType="cn.com.yusys.po.User">
+            <id column="user_id" jdbcType="VARCHAR" property="id" />
+            <result column="user_name" jdbcType="VARCHAR" property="name" />
+            <result column="user_section" jdbcType="VARCHAR" property="section" />
+            <result column="user_post" jdbcType="VARCHAR" property="post" />
+            <result column="user_specialty" jdbcType="VARCHAR" property="specialty" />
+            <result column="user_state" jdbcType="VARCHAR" property="state" />
+            <result column="manager_id" jdbcType="VARCHAR" property="managerId" />
+            <result column="manager_name" jdbcType="VARCHAR" property="managerName" />
+        </collection>
+        <collection property="fileList" ofType="cn.com.yusys.po.File">
+            <id column="file_id" jdbcType="VARCHAR" property="id" />
+            <result column="file_name" jdbcType="VARCHAR" property="name" />
+            <result column="file_path" jdbcType="VARCHAR" property="path" />
+            <result column="file_state" jdbcType="VARCHAR" property="state" />
+            <result column="file_time" jdbcType="VARCHAR" property="time" />
+        </collection>
+    </resultMap>
+
+
+    <select id="findProjectBranchUserResultMap" resultMap="BaseResultMap">
+        SELECT
+            p.*, b.id branch_id,
+            b.`name` branch_name,
+            b.num branch_num,
+            b.`master` branch_master,
+            b.slaver branch_slaver,
+            b.state branch_state,
+            b.author branch_author,
+            b.time branch_time,
+            u.id user_id,
+            u.`name` user_name,
+            u.section user_section,
+            u.post user_post,
+            u.specialty user_specialty,
+            u.state user_state,
+            u.manager_id,
+            u.manager_name,
+            f.id file_id,
+            f.`name` file_name,
+            f.path file_path,
+            f.state file_state,
+            f.time file_time
+        FROM
+            project p,
+            project_branch_relation br,
+            branch b,
+            project_user_relation ur,
+            USER u,
+            project_file_relation fr,
+            file f
+        WHERE
+            p.id = br.project_id
+        AND br.branch_id = b.id
+        AND p.id = ur.project_id
+        AND ur.user_id = u.id
+        AND p.id = fr.project_id
+        AND fr.file_id = f.id
+    </select>
+
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.yusys.mapper.ProjectBranchRelationCustomMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.yusys.po.ProjectBranchRelation" >
+    <id column="project_id" property="projectId" jdbcType="VARCHAR" />
+    <id column="branch_id" property="branchId" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="VARCHAR" />
+    <result column="label" property="label" jdbcType="VARCHAR" />
+    <result column="master" property="master" jdbcType="VARCHAR" />
+    <result column="masterDisplay" property="masterdisplay" jdbcType="VARCHAR" />
+    <result column="slaver" property="slaver" jdbcType="VARCHAR" />
+    <result column="slaverDisplay" property="slaverdisplay" jdbcType="VARCHAR" />
+    <result column="opt" property="opt" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="deleter" property="deleter" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    project_id, branch_id, num, label, master, masterDisplay, slaver, slaverDisplay, 
+    opt, time, author, deleter
+  </sql>
+  <select id="selectByProjectKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from project_branch_relation
+    where project_id = #{projectId,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

@@ -8,18 +8,28 @@ import cn.com.yusys.po.ProjectUserRelation;
 import cn.com.yusys.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashMap;
+import java.util.List;
+
 public class ProjectServiceImpl implements ProjectService{
     @Autowired
     ProjectMapper projectMapper;
+    @Autowired
+    ProjectCustomMapper projectCustomMapper;
     @Autowired
     ProjectBranchRelationMapper projectBranchRelationMapper;
     @Autowired
     ProjectRelationMapper projectRelationMapper;
     @Autowired
     ProjectUserRelationMapper projectUserRelationMapper;
-
+    @Autowired
+    ProjectBranchRelationCustomMapper projectBranchRelationCustomMapper;
     @Autowired
     ProjectFileRelationMapper projectFileRelationMapper;
+    @Autowired
+    ProjectUserRelationCustomMapper projectUserRelationCustomMapper;
+    @Autowired
+    ProjectFileRelationCustomMapper projectFileRelationCustomMapper;
 
 
     @Override
@@ -86,6 +96,36 @@ public class ProjectServiceImpl implements ProjectService{
     @Override
     public int deleteFileByFileKey(String fileId) throws Exception {
         return projectRelationMapper.deleteFileByFileKey(fileId);
+    }
+
+    @Override
+    public List<Project> selectAllProject(HashMap map) throws Exception {
+        return projectCustomMapper.selectAllProject(map);
+    }
+
+    @Override
+    public int selectCount(HashMap map) throws Exception {
+        return projectCustomMapper.selectCount(map);
+    }
+
+    @Override
+    public Project selectProjectByPrimaryKey(String id) throws Exception {
+        return projectMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<ProjectBranchRelation> selectProjectBranchRelationByProjectKey(String id) throws Exception {
+        return projectBranchRelationCustomMapper.selectByProjectKey(id);
+    }
+
+    @Override
+    public List<ProjectUserRelation> selectProjectUserRelationByProjectKey(String id) throws Exception {
+        return projectUserRelationCustomMapper.selectByProjectKey(id);
+    }
+
+    @Override
+    public List<ProjectFileRelation> selectProjectFileRelationByProjectKey(String id) throws Exception {
+        return projectFileRelationCustomMapper.selectByProjectKey(id);
     }
 
 

@@ -84,6 +84,7 @@ public class LoginController {
 
             objectHashMap.put("alias",manager.getAlias());
             objectHashMap.put("name",manager.getName());
+            objectHashMap.put("type",manager.getType());
             objectHashMap.put("pageSize", ParamUtil.get("page_size"));
             response.setBody(objectHashMap);
             return response;

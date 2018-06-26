@@ -4,9 +4,11 @@ import cn.com.yusys.po.*;
 import cn.com.yusys.service.BranchService;
 import cn.com.yusys.service.ProjectService;
 import cn.com.yusys.service.UserService;
+import cn.com.yusys.util.ParamUtil;
 import cn.com.yusys.vo.Head;
 import cn.com.yusys.vo.Request;
 import cn.com.yusys.vo.Response;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Controller;
@@ -352,6 +354,114 @@ public class ProjectController {
             projectService.insertUserRelation(projectUserRelation);
         }
 
+        return response;
+    }
+
+
+    @RequestMapping("queryProject")
+    public @ResponseBody Response queryProject(HttpSession session,@RequestBody Request request)throws Exception{
+        Head head = new Head();
+        Response response = new Response();
+
+        head.setErrorCode("000000");
+        response.setHead(head);
+
+        Manager manager = (Manager)session.getAttribute(session.getId());
+
+        HashMap<String,Object> objectHashMap = new HashMap<>();
+
+        String currentPage = request.getCurrentPage();
+        String pageSize = ParamUtil.get("page_size");
+        HashMap<String,Object> parmas = new HashMap();
+        String name = null;
+        if (null==request.getName() || "".equals(request.getName())){
+
+        }else {
+            name = request.getName();
+        }
+        parmas.put("name",name);
+        int startRow = Integer.valueOf(((Integer.parseInt(currentPage)-1)*Integer.parseInt(pageSize)));
+        int count = projectService.selectCount(parmas);
+        if (startRow>=count){
+            startRow = 0;
+        }
+        parmas.put("startRow",startRow);
+        parmas.put("endRow",Integer.valueOf(pageSize));
+
+        objectHashMap.put("count",count);
+        List<Project> projectList = projectService.selectAllProject(parmas);
+        List<ProjectCustom> newProjectList = new ArrayList<>();
+        for (Project project:projectList){
+            ProjectCustom projectCustom = new ProjectCustom();
+            BeanUtils.copyProperties(project,projectCustom);
+            if (project.getAuthor().equals(manager.getName())){
+                projectCustom.setRight(true);
+            }else {
+                projectCustom.setRight(false);
+            }
+            newProjectList.add(projectCustom);
+        }
+        objectHashMap.put("projectList",newProjectList);
+
+
+        response.setBody(objectHashMap);
+        return response;
+    }
+
+
+    @RequestMapping("queryProjectDetail")
+    public @ResponseBody Response queryProjectDetail(@RequestBody Request request)throws Exception{
+        Head head = new Head();
+        Response response = new Response();
+
+        head.setErrorCode("000000");
+        response.setHead(head);
+
+        HashMap<String,Object> objectHashMap = new HashMap<>();
+
+        Project project = projectService.selectProjectByPrimaryKey(request.getKey());
+        objectHashMap.put("project",project);
+
+        List<ProjectBranchRelation> projectBranchRelationList = projectService.selectProjectBranchRelationByProjectKey(project.getId());
+        String target = "";
+        for (ProjectBranchRelation projectBranchRelation:projectBranchRelationList){
+            target += "[" + projectBranchRelation.getLabel() + "]";
+        }
+        objectHashMap.put("target",target);
+
+        List<ProjectUserRelation> projectUserRelationList = projectService.selectProjectUserRelationByProjectKey(project.getId());
+        String leader = "";
+        String leaderBak = "";
+        String master = "";
+        String masterBak = "";
+        String slaver = "";
+        for (ProjectUserRelation projectUserRelation:projectUserRelationList){
+            if (projectUserRelation.getType().equals("0")) {
+                leader += "[" + projectUserRelation.getName() + "]";
+            }
+            if (projectUserRelation.getType().equals("1")) {
+                master += "[" + projectUserRelation.getName() + "]";
+            }
+            if (projectUserRelation.getType().equals("2")) {
+                slaver += "[" + projectUserRelation.getName() + "]";
+            }
+            if (projectUserRelation.getType().equals("3")) {
+                leaderBak += "[" + projectUserRelation.getName() + "]";
+            }
+            if (projectUserRelation.getType().equals("4")) {
+                masterBak += "[" + projectUserRelation.getName() + "]";
+            }
+        }
+        objectHashMap.put("leader",leader);
+        objectHashMap.put("master",master);
+        objectHashMap.put("slaver",slaver);
+        objectHashMap.put("leaderBak",leaderBak);
+        objectHashMap.put("masterBak",masterBak);
+
+        List<ProjectFileRelation> projectFileRelationList = projectService.selectProjectFileRelationByProjectKey(project.getId());
+        objectHashMap.put("projectFileRelationList",projectFileRelationList);
+
+        response.setBody(objectHashMap);
         return response;
     }
 }

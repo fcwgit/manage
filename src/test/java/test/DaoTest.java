@@ -2,6 +2,7 @@ package test;
 
 import cn.com.yusys.mapper.BranchMapper;
 import cn.com.yusys.mapper.ProjectCustomMapper;
+import cn.com.yusys.mapper.ProjectCustomMapper1;
 import cn.com.yusys.po.Branch;
 import cn.com.yusys.po.ProjectCustom;
 import org.apache.ibatis.session.SqlSession;
@@ -23,9 +24,9 @@ public class DaoTest {
         //
         //Branch branch = branchMapper.selectByPrimaryKey("1");
 
-        ProjectCustomMapper projectCustomMapper = sqlSession.getMapper(ProjectCustomMapper.class);
-        ProjectCustom projectCustom = projectCustomMapper.findProjectBranchUserResultMap();
-
-        System.out.println(projectCustom.getBranchList().size());
+        //ProjectCustomMapper1 projectCustomMapper = sqlSession.getMapper(ProjectCustomMapper1.class);
+        //ProjectCustom projectCustom = projectCustomMapper.findProjectBranchUserResultMap();
+        //
+        //System.out.println(projectCustom.getBranchList().size());
     }
 }

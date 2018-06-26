@@ -1,38 +1,27 @@
 package cn.com.yusys.po;
 
+import cn.com.yusys.util.DictUtil;
+
 import java.util.List;
 
 public class ProjectCustom extends Project{
-
-    //检查对象
-    private List<Branch> branchList;
-    //组长
-    private List<User> userList;
-
-    //附件
-    private List<File> fileList;
-
-    public List<Branch> getBranchList() {
-        return branchList;
+    public boolean isRight() {
+        return right;
     }
 
-    public void setBranchList(List<Branch> branchList) {
-        this.branchList = branchList;
+    public void setRight(boolean right) {
+        this.right = right;
     }
 
-    public List<User> getUserList() {
-        return userList;
+    private boolean right;
+
+    private String stateDisplay;
+
+    public String getStateDisplay() {
+        return DictUtil.getValue("project_state",stateDisplay);
     }
 
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
-    }
-
-    public List<File> getFileList() {
-        return fileList;
-    }
-
-    public void setFileList(List<File> fileList) {
-        this.fileList = fileList;
+    public void setStateDisplay(String stateDisplay) {
+        this.stateDisplay = stateDisplay;
     }
 }
