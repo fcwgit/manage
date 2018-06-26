@@ -31,7 +31,7 @@
     <where>
       <include refid="query_pinyin_where" />
     </where>
-    ORDER BY time
+    ORDER BY time DESC
     <if test="startRow!=null">
       limit #{startRow},#{endRow}
     </if>

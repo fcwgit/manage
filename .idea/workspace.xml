@@ -10,21 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d99f846-0e8e-4dfc-a6a3-97108e73538e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/vue/static/css/app.3198749e7b9349aa506b223d1755c4e5.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/vue/static/css/app.3198749e7b9349aa506b223d1755c4e5.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/vue/static/js/app.aa3dfa751c50c3be9e69.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/vue/static/js/app.aa3dfa751c50c3be9e69.js.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/vue/static/js/vendor.0c09e3d0b20e33c01486.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/vue/static/js/vendor.0c09e3d0b20e33c01486.js.map" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vue/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/vue/index.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vue/static/css/app.f3eba682a3d6c359a30d07e5d0e17a15.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vue/static/css/app.f3eba682a3d6c359a30d07e5d0e17a15.css.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vue/static/js/app.b9d84445d9373ffc31f1.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vue/static/js/app.b9d84445d9373ffc31f1.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vue/static/js/manifest.3ad1d5771e9b13dbdad2.js.map" afterPath="$PROJECT_DIR$/src/main/webapp/vue/static/js/manifest.3ad1d5771e9b13dbdad2.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vue/static/js/vendor.0ee61721abe15b5e8214.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/vue/static/js/vendor.0ee61721abe15b5e8214.js.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ManagerCustomMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ManagerCustomMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectCustomMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectCustomMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/UserCustomMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/UserCustomMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,7 +37,45 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ProjectCustomMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectCustomMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="13" />
+              <folding>
+                <marker date="1529979229553" expanded="true" signature="1569:1613" ph="select count... project" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserCustomMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/UserCustomMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+              <folding>
+                <marker date="1529979229539" expanded="true" signature="1743:1776" ph="select count... user" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ManagerCustomMapper.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ManagerCustomMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+              <folding>
+                <marker date="1529979236350" expanded="true" signature="1438:1626" ph="select from manager" />
+                <marker date="1529979236350" expanded="true" signature="1724:1760" ph="select count... manager" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -60,11 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>queryMasterSlaver</find>
-      <find>branchService</find>
-      <find>updateByPrimaryKey</find>
-      <find>BaseResultMapBaseResultMap</find>
-      <find>insert</find>
       <find>insertSelective</find>
       <find>branch_rate</find>
       <find>worker</find>
@@ -90,7 +112,15 @@
       <find>findProjectBranchUserResultMap</find>
       <find>ResultMapWithBLOBs</find>
       <find>selectByPrimaryKey</find>
+      <find>order by</find>
+      <find>ORDER BY</find>
+      <find>ORDER</find>
+      <find>ORDER b</find>
+      <find>order b</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -112,7 +142,6 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/ManagerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/impl/ManagerServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ManagerCustomMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ManagerCustomMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/ManagerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/util/BranchTypeUtil.java" />
@@ -132,7 +161,6 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/UserCustomMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/UserCustomMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/BranchCustom.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/vo/Request.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/UserCustom.java" />
@@ -147,7 +175,6 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/ProjectCustom1.java" />
         <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectCustomMapper1.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ProjectCustomMapper1.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectCustomMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ProjectBranchRelationCustomMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectBranchRelationCustomMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ProjectUserRelationCustomMapper.java" />
@@ -159,6 +186,9 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/ProjectCustom.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/ProjectController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectCustomMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/UserCustomMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ManagerCustomMapper.xml" />
       </list>
     </option>
   </component>
@@ -296,6 +326,85 @@
               <item name="manage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yusys" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yusys" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yusys" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -323,6 +432,19 @@
               <item name="manage" type="b2602c69:ProjectViewProjectNode" />
               <item name="manage" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -707,7 +829,7 @@
       <updated>1529163030395</updated>
       <workItem from="1529163032372" duration="82820000" />
       <workItem from="1529631314636" duration="55841000" />
-      <workItem from="1529851953615" duration="45751000" />
+      <workItem from="1529851953615" duration="46364000" />
     </task>
     <task id="LOCAL-00001" summary="搭建框架">
       <created>1529279198259</created>
@@ -800,7 +922,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529978341438</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="集成">
+      <created>1529978649340</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1529978649340</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -836,7 +965,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184412000" />
+    <option name="totallyTimeSpent" value="185025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="6" />
@@ -853,7 +982,7 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17754173" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45068285" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29135054" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -926,7 +1055,8 @@
     <MESSAGE value="UserManage" />
     <MESSAGE value="user、branch、manager" />
     <MESSAGE value="对象、组长、主查、检查人员" />
-    <option name="LAST_COMMIT_MESSAGE" value="对象、组长、主查、检查人员" />
+    <MESSAGE value="集成" />
+    <option name="LAST_COMMIT_MESSAGE" value="集成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -949,27 +1079,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/po/BranchCustom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#228#229#0" expanded="false" />
-            <element signature="e#256#257#0" expanded="false" />
-            <element signature="e#298#299#0" expanded="false" />
-            <element signature="e#332#333#0" expanded="false" />
-            <element signature="e#390#391#0" expanded="false" />
-            <element signature="e#440#441#0" expanded="false" />
-            <element signature="e#498#499#0" expanded="false" />
-            <element signature="e#548#549#0" expanded="false" />
-            <element signature="e#707#708#0" expanded="false" />
-            <element signature="e#787#788#0" expanded="false" />
-            <element signature="e#827#828#0" expanded="false" />
-            <element signature="e#907#908#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/BranchCustomMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1218,27 +1327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/UserCustomMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="19" column="2" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="46" selection-end-column="11" />
-          <folding>
-            <marker date="1529854592559" expanded="true" signature="1416:1478" ph="select from user" />
-            <marker date="1529854592559" expanded="true" signature="1738:1771" ph="select count... user" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectCustomMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="53" lean-forward="false" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
-          <folding>
-            <marker date="1529944685934" expanded="true" signature="1564:1608" ph="select count... project" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/po/Project.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1466,6 +1554,37 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectCustomMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <marker date="1529979229553" expanded="true" signature="1569:1613" ph="select count... project" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/UserCustomMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+          <folding>
+            <marker date="1529979229539" expanded="true" signature="1743:1776" ph="select count... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ManagerCustomMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+          <folding>
+            <marker date="1529979236350" expanded="true" signature="1438:1626" ph="select from manager" />
+            <marker date="1529979236350" expanded="true" signature="1724:1760" ph="select count... manager" />
+          </folding>
         </state>
       </provider>
     </entry>

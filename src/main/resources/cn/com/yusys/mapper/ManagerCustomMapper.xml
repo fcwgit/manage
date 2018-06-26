@@ -31,7 +31,7 @@
     <where>
       <include refid="query_name_where" />
     </where>
-    ORDER BY time
+    ORDER BY time DESC
     limit #{startRow},#{endRow}
 
   </select>
