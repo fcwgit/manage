@@ -1,5 +1,7 @@
 package cn.com.yusys.interceptor;
 
+import cn.com.yusys.po.Manager;
+import cn.com.yusys.util.SendMsgUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -20,11 +22,14 @@ public class LoginCheckInterceptor implements HandlerInterceptor{
         String url = httpServletRequest.getRequestURI();
         log.info("url="+url);
         //如果是公开地址，则不判断Session
-        if(url.indexOf("login")>=0){
+        if(url.indexOf("login")>=0 || url.indexOf("resetPassword")>0 || url.indexOf(".action")<0){
             return true;
+        }else {
+            if(null == session.getAttribute(session.getId())){
+                SendMsgUtil.sendJsonMessage(httpServletResponse);
+                return false;
+            }
         }
-        //判断Session
-        session.getAttribute("manage");
         return true;
     }
 
