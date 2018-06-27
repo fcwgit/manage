@@ -31,6 +31,16 @@ public class Request implements Serializable{
     private BranchCustom[] target;
     private UserCustom[] leader;
 
+    private String contents;
+
+    public String getContents() {
+        return contents;
+    }
+
+    public void setContents(String contents) {
+        this.contents = contents;
+    }
+
     public UserCustom[] getLeader() {
         return leader;
     }

@@ -49,4 +49,9 @@ public interface ProjectService {
     public List<ProjectUserRelation> selectProjectUserRelationByProjectKey(String id)throws Exception;
 
     public List<ProjectFileRelation> selectProjectFileRelationByProjectKey(String id)throws Exception;
+
+
+    public int insertProjectLogSelective(ProjectLog projectLog)throws  Exception;
+
+    public List<ProjectLog> selectProjectLogByProjectKey(ProjectLog projectLog)throws Exception;
 }

@@ -75,4 +75,12 @@ public class Project implements Serializable {
     public void setDes(String des) {
         this.des = des == null ? null : des.trim();
     }
+
+
+    @Override
+    public String toString() {
+        return "项目名称:"+this.name+"\n"
+                +"项目描述:"+this.des+"\n"
+                +"检查日期:"+this.date;
+    }
 }

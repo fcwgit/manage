@@ -10,18 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d99f846-0e8e-4dfc-a6a3-97108e73538e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_0_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_1_0_Final.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_1_3_GA.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/com/yusys/util/SendMsgUtil.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/manage_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/manage_war_exploded.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ProjectLogCustomMapper.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ProjectLogMapper.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/ProjectLog.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectLogCustomMapper.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectLogMapper.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/manage.iml" afterPath="$PROJECT_DIR$/manage.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/com/yusys/interceptor/LoginCheckInterceptor.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/yusys/interceptor/LoginCheckInterceptor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/springmvc/springmvc.xml" afterPath="$PROJECT_DIR$/src/main/resources/springmvc/springmvc.xml" />
-      <change beforePath="$PROJECT_DIR$/target/classes/springmvc/springmvc.xml" afterPath="$PROJECT_DIR$/target/classes/springmvc/springmvc.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/ProjectController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/ProjectController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/Project.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/Project.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/ProjectService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/ProjectService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/impl/ProjectServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/impl/ProjectServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/com/yusys/vo/Request.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/yusys/vo/Request.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-generator-config.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-generator-config.xml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/com/yusys/po/Project.class" afterPath="$PROJECT_DIR$/target/classes/cn/com/yusys/po/Project.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-generator-config.xml" afterPath="$PROJECT_DIR$/target/classes/mybatis-generator-config.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -56,11 +58,136 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SendMsgUtil.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SendMsgUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/util/SendMsgUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+            <state relative-caret-position="285">
+              <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mybatis-generator-config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-generator-config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="72" column="46" lean-forward="false" selection-start-line="72" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectLogMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectLogMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="19" selection-end-column="8" />
+              <folding>
+                <marker date="1530068417171" expanded="true" signature="1115:1269" ph="select , fro... " />
+                <marker date="1530068417171" expanded="true" signature="1355:1416" ph="delete from project_log... " />
+                <marker date="1530068417171" expanded="true" signature="1500:1814" ph="insert into project_log... " />
+                <marker date="1530068417171" expanded="true" signature="3172:3802" ph="update project_log... " />
+                <marker date="1530068417171" expanded="true" signature="3907:4228" ph="update project_log... " />
+                <marker date="1530068417171" expanded="true" signature="4324:4594" ph="update project_log... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/service/ProjectService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="55" column="56" lean-forward="false" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/service/impl/ProjectServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="137" column="28" lean-forward="false" selection-start-line="137" selection-start-column="28" selection-end-line="137" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectLog.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/po/ProjectLog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/ProjectController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1809">
+              <caret line="404" column="34" lean-forward="false" selection-start-line="404" selection-start-column="34" selection-end-line="404" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Request.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/vo/Request.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="35" column="33" lean-forward="false" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+              <folding>
+                <element signature="e#853#854#0" expanded="true" />
+                <element signature="e#901#902#0" expanded="true" />
+                <element signature="e#941#942#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Project.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/po/Project.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="83" column="34" lean-forward="false" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectLogCustomMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectLogCustomMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+              <folding>
+                <marker date="1530068451010" expanded="true" signature="1131:1299" ph="select , fro... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectLogCustomMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ProjectLogCustomMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="61" lean-forward="false" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,9 +258,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ManagerCustomMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/ManagerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/util/BranchTypeUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/BranchMaster.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/BranchSlaver.java" />
@@ -152,9 +276,7 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/UserCustomMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/BranchCustom.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/vo/Request.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/UserCustom.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis-generator-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/UploadController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ProjectRelationMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectRelationMapper.xml" />
@@ -169,10 +291,7 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ProjectFileRelationCustomMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectUserRelationCustomMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectFileRelationCustomMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/ProjectService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/impl/ProjectServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/ProjectCustom.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/ProjectController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectCustomMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/UserCustomMapper.xml" />
@@ -182,6 +301,14 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/interceptor/LoginCheckInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/util/SendMsgUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-generator-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ProjectLogCustomMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectLogCustomMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/po/Project.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/impl/ProjectServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/service/ProjectService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/vo/Request.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/ProjectController.java" />
       </list>
     </option>
   </component>
@@ -216,6 +343,12 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="manage Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="manage Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+          <item name="mybatis-generator" type="36feed69:MavenProjectsStructure$PluginNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
@@ -397,6 +530,28 @@
               <item name="cn" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="yusys" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yusys" type="462c0819:PsiDirectoryNode" />
+              <item name="po" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cn" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="yusys" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -528,40 +683,6 @@
             <path>
               <item name="manage" type="b2602c69:ProjectViewProjectNode" />
               <item name="manage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="schema" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="manage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="schema" type="462c0819:PsiDirectoryNode" />
-              <item name="sql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="manage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="manage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="manage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="manage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="manage" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -581,9 +702,12 @@
     <property name="SearchEverywhereHistoryKey" value="branch.java&#9;FILE&#9;file:///Users/fanchengwei/Desktop/SSM/manage/src/main/java/cn/com/yusys/po/Branch.java&#10;JdbcType&#9;PSI&#9;JAVA://org.apache.ibatis.type.JdbcType&#10;web.x&#9;FILE&#9;file:///Users/fanchengwei/Desktop/SSM/manage/src/main/webapp/WEB-INF/web.xml" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper" />
+      <recent name="$PROJECT_DIR$/src/schema/sql" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/vue/static" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/vue" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cn.com.yusys.mapper" />
@@ -592,12 +716,9 @@
       <recent name="cn.com.yusys.controller" />
       <recent name="cn.com.yusys.interceptor" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/schema/sql" />
-      <recent name="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/vue/static" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/vue" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
+      <recent name="$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -947,7 +1068,7 @@
       <workItem from="1529631314636" duration="55841000" />
       <workItem from="1529851953615" duration="48936000" />
       <workItem from="1529983970956" duration="192000" />
-      <workItem from="1529984426938" duration="12168000" />
+      <workItem from="1529984426938" duration="16738000" />
     </task>
     <task id="LOCAL-00001" summary="搭建框架">
       <created>1529279198259</created>
@@ -1061,7 +1182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1530053714475</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="去掉校验jar">
+      <created>1530067270903</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1530067270903</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1097,7 +1225,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199957000" />
+    <option name="totallyTimeSpent" value="204527000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="6" />
@@ -1114,14 +1242,14 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.094081946" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4552352" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29135054" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31259483" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11836115" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33360258" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1213,72 +1341,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectBranchRelationCustomMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/po/ProjectBranchRelation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/service/impl/ProjectServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="112" column="35" lean-forward="false" selection-start-line="112" selection-start-column="35" selection-end-line="112" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ProjectMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/service/ProjectService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="39" column="11" lean-forward="false" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/po/ProjectCustom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/schema/sql/manage-20180626.1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectCustomMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="13" />
-          <folding>
-            <marker date="1529979229553" expanded="true" signature="1569:1613" ph="select count... project" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/UserCustomMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -1346,14 +1408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/vo/Request.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1458,14 +1512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
           <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/ProjectController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6000">
-          <caret line="424" column="68" lean-forward="false" selection-start-line="424" selection-start-column="68" selection-end-line="424" selection-end-column="68" />
           <folding />
         </state>
       </provider>
@@ -1622,11 +1668,114 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/util/SendMsgUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        <state relative-caret-position="285">
+          <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-generator-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="72" column="46" lean-forward="false" selection-start-line="72" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/mapper/ProjectLogCustomMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="61" lean-forward="false" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectLogMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="19" selection-end-column="8" />
+          <folding>
+            <marker date="1530068417171" expanded="true" signature="1115:1269" ph="select , fro... " />
+            <marker date="1530068417171" expanded="true" signature="1355:1416" ph="delete from project_log... " />
+            <marker date="1530068417171" expanded="true" signature="1500:1814" ph="insert into project_log... " />
+            <marker date="1530068417171" expanded="true" signature="3172:3802" ph="update project_log... " />
+            <marker date="1530068417171" expanded="true" signature="3907:4228" ph="update project_log... " />
+            <marker date="1530068417171" expanded="true" signature="4324:4594" ph="update project_log... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/cn/com/yusys/mapper/ProjectLogCustomMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding>
+            <marker date="1530068451010" expanded="true" signature="1131:1299" ph="select , fro... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/po/ProjectLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/po/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="83" column="34" lean-forward="false" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/service/ProjectService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="55" column="56" lean-forward="false" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/service/impl/ProjectServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="137" column="28" lean-forward="false" selection-start-line="137" selection-start-column="28" selection-end-line="137" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/vo/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="35" column="33" lean-forward="false" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+          <folding>
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#901#902#0" expanded="true" />
+            <element signature="e#941#942#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/com/yusys/controller/ProjectController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1809">
+          <caret line="404" column="34" lean-forward="false" selection-start-line="404" selection-start-column="34" selection-end-line="404" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,10 +1,7 @@
 package cn.com.yusys.service.impl;
 
 import cn.com.yusys.mapper.*;
-import cn.com.yusys.po.Project;
-import cn.com.yusys.po.ProjectBranchRelation;
-import cn.com.yusys.po.ProjectFileRelation;
-import cn.com.yusys.po.ProjectUserRelation;
+import cn.com.yusys.po.*;
 import cn.com.yusys.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,6 +27,10 @@ public class ProjectServiceImpl implements ProjectService{
     ProjectUserRelationCustomMapper projectUserRelationCustomMapper;
     @Autowired
     ProjectFileRelationCustomMapper projectFileRelationCustomMapper;
+    @Autowired
+    ProjectLogMapper projectLogMapper;
+    @Autowired
+    ProjectLogCustomMapper projectLogCustomMapper;
 
 
     @Override
@@ -126,6 +127,16 @@ public class ProjectServiceImpl implements ProjectService{
     @Override
     public List<ProjectFileRelation> selectProjectFileRelationByProjectKey(String id) throws Exception {
         return projectFileRelationCustomMapper.selectByProjectKey(id);
+    }
+
+    @Override
+    public int insertProjectLogSelective(ProjectLog projectLog) throws Exception {
+        return projectLogMapper.insertSelective(projectLog);
+    }
+
+    @Override
+    public List<ProjectLog> selectProjectLogByProjectKey(ProjectLog projectLog) throws Exception {
+        return projectLogCustomMapper.selectByProjectKey(projectLog);
     }
 
 

@@ -53,6 +53,17 @@ public class ProjectController {
 
         projectService.insertProject(project);
 
+
+        ProjectLog projectLog = new ProjectLog();
+        projectLog.setId(UUID.randomUUID().toString());
+        projectLog.setProjectid(id);
+        projectLog.setTrade("addProject");
+        projectLog.setName("创建项目");
+        projectLog.setContents(project.toString());
+        projectLog.setAuthor(manager.getName());
+
+        projectService.insertProjectLogSelective(projectLog);
+
         response.setHead(head);
         //response
         HashMap<String,Object> objectHashMap = new HashMap<>();
@@ -149,6 +160,18 @@ public class ProjectController {
         response.setHead(head);
 
         Manager manager = (Manager) session.getAttribute(session.getId());
+
+        ProjectLog projectLog = new ProjectLog();
+        projectLog.setId(UUID.randomUUID().toString());
+        projectLog.setProjectid(request.getKey());
+        projectLog.setTrade("addTarget");
+        projectLog.setName("设置检查对象");
+        projectLog.setContents(request.getContents());
+        projectLog.setAuthor(manager.getName());
+
+        projectService.insertProjectLogSelective(projectLog);
+
+
         ProjectBranchRelation relation = new ProjectBranchRelation();
         relation.setProjectId(request.getKey());
         relation.setDeleter(manager.getName());
@@ -186,6 +209,19 @@ public class ProjectController {
         response.setHead(head);
 
         Manager manager = (Manager) session.getAttribute(session.getId());
+
+        ProjectLog projectLog = new ProjectLog();
+        projectLog.setId(UUID.randomUUID().toString());
+        projectLog.setProjectid(request.getKey());
+        projectLog.setTrade("addLeader");
+        projectLog.setName("设置组长");
+        projectLog.setContents(request.getContents());
+        projectLog.setAuthor(manager.getName());
+        projectService.insertProjectLogSelective(projectLog);
+
+
+
+
         ProjectUserRelation relation = new ProjectUserRelation();
         relation.setProjectId(request.getKey());
         relation.setDeleter(manager.getName());
@@ -221,6 +257,17 @@ public class ProjectController {
         response.setHead(head);
 
         Manager manager = (Manager) session.getAttribute(session.getId());
+
+        ProjectLog projectLog = new ProjectLog();
+        projectLog.setId(UUID.randomUUID().toString());
+        projectLog.setProjectid(request.getKey());
+        projectLog.setTrade("addLeaderBak");
+        projectLog.setName("设置副组长");
+        projectLog.setContents(request.getContents());
+        projectLog.setAuthor(manager.getName());
+        projectService.insertProjectLogSelective(projectLog);
+
+
         ProjectUserRelation relation = new ProjectUserRelation();
         relation.setProjectId(request.getKey());
         relation.setDeleter(manager.getName());
@@ -258,6 +305,17 @@ public class ProjectController {
         response.setHead(head);
 
         Manager manager = (Manager) session.getAttribute(session.getId());
+
+        ProjectLog projectLog = new ProjectLog();
+        projectLog.setId(UUID.randomUUID().toString());
+        projectLog.setProjectid(request.getKey());
+        projectLog.setTrade("addMaster");
+        projectLog.setName("设置主查");
+        projectLog.setContents(request.getContents());
+        projectLog.setAuthor(manager.getName());
+        projectService.insertProjectLogSelective(projectLog);
+
+
         ProjectUserRelation relation = new ProjectUserRelation();
         relation.setProjectId(request.getKey());
         relation.setDeleter(manager.getName());
@@ -293,6 +351,16 @@ public class ProjectController {
         response.setHead(head);
 
         Manager manager = (Manager) session.getAttribute(session.getId());
+
+        ProjectLog projectLog = new ProjectLog();
+        projectLog.setId(UUID.randomUUID().toString());
+        projectLog.setProjectid(request.getKey());
+        projectLog.setTrade("addMasterBak");
+        projectLog.setName("设置副主查");
+        projectLog.setContents(request.getContents());
+        projectLog.setAuthor(manager.getName());
+        projectService.insertProjectLogSelective(projectLog);
+
         ProjectUserRelation relation = new ProjectUserRelation();
         relation.setProjectId(request.getKey());
         relation.setDeleter(manager.getName());
@@ -329,6 +397,18 @@ public class ProjectController {
         response.setHead(head);
 
         Manager manager = (Manager) session.getAttribute(session.getId());
+
+        ProjectLog projectLog = new ProjectLog();
+        projectLog.setId(UUID.randomUUID().toString());
+        projectLog.setProjectid(request.getKey());
+        projectLog.setTrade("addSlaver");
+        projectLog.setName("设置检查人员");
+        projectLog.setContents(request.getContents());
+        projectLog.setAuthor(manager.getName());
+        projectService.insertProjectLogSelective(projectLog);
+
+
+
         ProjectUserRelation relation = new ProjectUserRelation();
         relation.setProjectId(request.getKey());
         relation.setDeleter(manager.getName());
