@@ -5,14 +5,13 @@
     <id column="file_id" property="fileId" jdbcType="VARCHAR" />
     <result column="project_id" property="projectId" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="original" property="original" jdbcType="VARCHAR" />
-    <result column="path" property="path" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="author" property="author" jdbcType="VARCHAR" />
     <result column="deleter" property="deleter" jdbcType="VARCHAR" />
     <result column="time" property="time" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    file_id, project_id, name, original, path, author, deleter, time
+    file_id, project_id, name, url, author, deleter, time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -26,11 +25,11 @@
   </delete>
   <insert id="insert" parameterType="cn.com.yusys.po.ProjectFileRelation" >
     insert into project_file_relation (file_id, project_id, name, 
-      original, path, author, 
-      deleter, time)
+      url, author, deleter, 
+      time)
     values (#{fileId,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{original,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
-      #{deleter,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP})
+      #{url,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{deleter,jdbcType=VARCHAR}, 
+      #{time,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.com.yusys.po.ProjectFileRelation" >
     insert into project_file_relation
@@ -44,11 +43,8 @@
       <if test="name != null" >
         name,
       </if>
-      <if test="original != null" >
-        original,
-      </if>
-      <if test="path != null" >
-        path,
+      <if test="url != null" >
+        url,
       </if>
       <if test="author != null" >
         author,
@@ -70,11 +66,8 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="original != null" >
-        #{original,jdbcType=VARCHAR},
-      </if>
-      <if test="path != null" >
-        #{path,jdbcType=VARCHAR},
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
       </if>
       <if test="author != null" >
         #{author,jdbcType=VARCHAR},
@@ -96,11 +89,8 @@
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="original != null" >
-        original = #{original,jdbcType=VARCHAR},
-      </if>
-      <if test="path != null" >
-        path = #{path,jdbcType=VARCHAR},
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
       </if>
       <if test="author != null" >
         author = #{author,jdbcType=VARCHAR},
@@ -118,8 +108,7 @@
     update project_file_relation
     set project_id = #{projectId,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
-      original = #{original,jdbcType=VARCHAR},
-      path = #{path,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
       author = #{author,jdbcType=VARCHAR},
       deleter = #{deleter,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP}

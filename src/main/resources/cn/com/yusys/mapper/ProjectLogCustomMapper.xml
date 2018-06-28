@@ -6,6 +6,7 @@
     <result column="projectid" property="projectid" jdbcType="VARCHAR" />
     <result column="trade" property="trade" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="author" property="author" jdbcType="VARCHAR" />
     <result column="time" property="time" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -13,7 +14,7 @@
     <result column="contents" property="contents" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, projectid, trade, name, author, time
+    id, projectid, trade, name, url, author, time
   </sql>
   <sql id="Blob_Column_List" >
     contents

@@ -514,8 +514,10 @@ public class ProjectController {
             }else {
                 projectCustom.setRight(false);
             }
+            projectCustom.setStateDisplay(project.getState());
             newProjectList.add(projectCustom);
         }
+
         objectHashMap.put("projectList",newProjectList);
 
 
@@ -575,7 +577,11 @@ public class ProjectController {
 
         List<ProjectFileRelation> projectFileRelationList = projectService.selectProjectFileRelationByProjectKey(project.getId());
         objectHashMap.put("projectFileRelationList",projectFileRelationList);
-
+        String fileNames = "";
+        for (ProjectFileRelation projectFileRelation:projectFileRelationList){
+            fileNames += "[" + projectFileRelation.getName() + "]";
+        }
+        objectHashMap.put("fileNames",fileNames);
 
 
         ProjectLog param = new ProjectLog();
@@ -588,6 +594,7 @@ public class ProjectController {
         List<ProjectLog> masterList = new ArrayList<>();
         List<ProjectLog> masterBakList = new ArrayList<>();
         List<ProjectLog> slaverList = new ArrayList<>();
+        List<ProjectLog> fileLogList = new ArrayList<>();
         for (ProjectLog projectLog:projectLogList){
             if (projectLog.getTrade().equals("addTarget")){
                 targetList.add(projectLog);
@@ -611,7 +618,10 @@ public class ProjectController {
             }
             if (projectLog.getTrade().equals("addSlaver")){
                 slaverList.add(projectLog);
-                ;
+                continue;
+            }
+            if (projectLog.getTrade().equals("upload") || projectLog.getTrade().equals("deleteFile")){
+                fileLogList.add(projectLog);
             }
         }
         objectHashMap.put("addTarget",targetList);
@@ -620,6 +630,7 @@ public class ProjectController {
         objectHashMap.put("addMaster",masterList);
         objectHashMap.put("addMasterBak",masterBakList);
         objectHashMap.put("addSlaver",slaverList);
+        objectHashMap.put("fileLog",fileLogList);
 
 
         response.setBody(objectHashMap);

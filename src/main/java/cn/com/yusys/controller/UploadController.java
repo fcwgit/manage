@@ -1,9 +1,6 @@
 package cn.com.yusys.controller;
 
-import cn.com.yusys.po.Manager;
-import cn.com.yusys.po.ProjectFileRelation;
-import cn.com.yusys.po.ProjectUserRelation;
-import cn.com.yusys.po.UserCustom;
+import cn.com.yusys.po.*;
 import cn.com.yusys.service.ProjectService;
 import cn.com.yusys.util.ParamUtil;
 import cn.com.yusys.vo.Head;
@@ -52,18 +49,27 @@ public class UploadController {
 
             uploadFile.transferTo(newFile);
             objectHashMap.put("id",id);
-            objectHashMap.put("name",newFileName);
-            objectHashMap.put("url","/img/"+newFileName);
+            objectHashMap.put("name",originalFilename);
+            objectHashMap.put("url",ParamUtil.get("fileServer")+newFileName);
 
             ProjectFileRelation projectFileRelation = new ProjectFileRelation();
             projectFileRelation.setProjectId(key);
             projectFileRelation.setFileId(id);
-            projectFileRelation.setName(newFileName);
-            projectFileRelation.setOriginal(originalFilename);
-            projectFileRelation.setPath("img/"+newFileName);
-
+            projectFileRelation.setName(originalFilename);
+            projectFileRelation.setUrl(ParamUtil.get("fileServer")+newFileName);
             projectFileRelation.setAuthor(manager.getName());
             projectService.insertFileRelation(projectFileRelation);
+
+
+            ProjectLog projectLog = new ProjectLog();
+            projectLog.setId(UUID.randomUUID().toString());
+            projectLog.setProjectid(key);
+            projectLog.setTrade("upload");
+            projectLog.setName("上传附件");
+            projectLog.setUrl(ParamUtil.get("fileServer")+newFileName);
+            projectLog.setContents("上传附件[" + originalFilename + "]到文件服务器[" + ParamUtil.get("fileServer") + "]");
+            projectLog.setAuthor(manager.getName());
+            projectService.insertProjectLogSelective(projectLog);
         }
 
         response.setBody(objectHashMap);
@@ -89,6 +95,17 @@ public class UploadController {
 
         projectService.insertProjectFileRelationLog(request.getKey());
         projectService.deleteFileByFileKey(request.getKey());
+
+
+        ProjectLog projectLog = new ProjectLog();
+        projectLog.setId(UUID.randomUUID().toString());
+        projectLog.setProjectid(request.getProjectId());
+        projectLog.setTrade("deleteFile");
+        projectLog.setName("删除附件");
+        projectLog.setUrl(request.getUrl());
+        projectLog.setContents("从文件服务器" + ParamUtil.get("fileServer") + "删除附件[" + request.getName() + "]");
+        projectLog.setAuthor(manager.getName());
+        projectService.insertProjectLogSelective(projectLog);
 
 
         return response;

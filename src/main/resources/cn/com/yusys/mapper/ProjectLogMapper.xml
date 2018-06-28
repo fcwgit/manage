@@ -6,6 +6,7 @@
     <result column="projectid" property="projectid" jdbcType="VARCHAR" />
     <result column="trade" property="trade" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="author" property="author" jdbcType="VARCHAR" />
     <result column="time" property="time" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -13,7 +14,7 @@
     <result column="contents" property="contents" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, projectid, trade, name, author, time
+    id, projectid, trade, name, url, author, time
   </sql>
   <sql id="Blob_Column_List" >
     contents
@@ -32,11 +33,11 @@
   </delete>
   <insert id="insert" parameterType="cn.com.yusys.po.ProjectLog" >
     insert into project_log (id, projectid, trade, 
-      name, author, time, 
-      contents)
+      name, url, author, 
+      time, contents)
     values (#{id,jdbcType=VARCHAR}, #{projectid,jdbcType=VARCHAR}, #{trade,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
-      #{contents,jdbcType=LONGVARCHAR})
+      #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+      #{time,jdbcType=TIMESTAMP}, #{contents,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.com.yusys.po.ProjectLog" >
     insert into project_log
@@ -52,6 +53,9 @@
       </if>
       <if test="name != null" >
         name,
+      </if>
+      <if test="url != null" >
+        url,
       </if>
       <if test="author != null" >
         author,
@@ -76,6 +80,9 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
       <if test="author != null" >
         #{author,jdbcType=VARCHAR},
       </if>
@@ -99,6 +106,9 @@
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
       <if test="author != null" >
         author = #{author,jdbcType=VARCHAR},
       </if>
@@ -116,6 +126,7 @@
     set projectid = #{projectid,jdbcType=VARCHAR},
       trade = #{trade,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
       author = #{author,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP},
       contents = #{contents,jdbcType=LONGVARCHAR}
@@ -126,6 +137,7 @@
     set projectid = #{projectid,jdbcType=VARCHAR},
       trade = #{trade,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
       author = #{author,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}

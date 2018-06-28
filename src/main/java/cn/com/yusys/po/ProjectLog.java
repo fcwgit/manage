@@ -12,6 +12,8 @@ public class ProjectLog implements Serializable {
 
     private String name;
 
+    private String url;
+
     private String author;
 
     private Date time;
@@ -50,6 +52,14 @@ public class ProjectLog implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
     }
 
     public String getAuthor() {

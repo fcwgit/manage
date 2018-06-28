@@ -10,9 +10,7 @@ public class ProjectFileRelation implements Serializable {
 
     private String name;
 
-    private String original;
-
-    private String path;
+    private String url;
 
     private String author;
 
@@ -46,20 +44,12 @@ public class ProjectFileRelation implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getOriginal() {
-        return original;
+    public String getUrl() {
+        return url;
     }
 
-    public void setOriginal(String original) {
-        this.original = original == null ? null : original.trim();
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path == null ? null : path.trim();
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
     }
 
     public String getAuthor() {

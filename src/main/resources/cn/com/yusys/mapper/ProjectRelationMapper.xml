@@ -102,16 +102,14 @@
             project_id,
             file_id,
             name,
-            original,
-            path,
+            url,
             author,
             deleter
         )SELECT
             project_id,
             file_id,
             name,
-            original,
-            path,
+            url,
             author,
             deleter
         FROM
