@@ -29,7 +29,7 @@ public class BranchController {
         Head head = new Head();
         head.setErrorCode("000000");
         Response response = new Response();
-        List<BranchCustom> branchList = branchService.selectAllBranch();
+        List<BranchCustom> branchList = branchService.selectAllBranchWithoutState();
         HashMap<String,BranchMasterNode> masterSlaver = new HashMap<String, BranchMasterNode>();
         for (BranchCustom branch : branchList){
             BranchMasterNode masterNode = masterSlaver.get(branch.getMaster());

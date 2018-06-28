@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface BranchCustomMapper{
     List<BranchCustom> selectAllBranch();
+
+    List<BranchCustom> selectAllBranchWithoutState();
 }

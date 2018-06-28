@@ -37,6 +37,11 @@ public class BranchServiceImpl implements BranchService{
     }
 
     @Override
+    public List<BranchCustom> selectAllBranchWithoutState() throws Exception {
+        return branchCustomMapper.selectAllBranchWithoutState();
+    }
+
+    @Override
     public int selectCount(HashMap map) throws Exception {
         return 0;
     }

@@ -17,5 +17,7 @@ public interface BranchService {
 
     public List<BranchCustom> selectAllBranch()throws Exception;
 
+    public List<BranchCustom> selectAllBranchWithoutState()throws Exception;
+
     public int selectCount(HashMap map)throws Exception;
 }
