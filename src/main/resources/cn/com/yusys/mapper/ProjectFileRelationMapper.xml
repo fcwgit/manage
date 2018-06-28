@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.com.yusys.mapper.ProjectFileRelationMapper" >
   <resultMap id="BaseResultMap" type="cn.com.yusys.po.ProjectFileRelation" >
-    <id column="project_id" property="projectId" jdbcType="VARCHAR" />
     <id column="file_id" property="fileId" jdbcType="VARCHAR" />
+    <result column="project_id" property="projectId" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="original" property="original" jdbcType="VARCHAR" />
     <result column="path" property="path" jdbcType="VARCHAR" />
@@ -12,36 +12,34 @@
     <result column="time" property="time" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    project_id, file_id, name, original, path, author, deleter, time
+    file_id, project_id, name, original, path, author, deleter, time
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="cn.com.yusys.po.ProjectFileRelationKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from project_file_relation
-    where project_id = #{projectId,jdbcType=VARCHAR}
-      and file_id = #{fileId,jdbcType=VARCHAR}
+    where file_id = #{fileId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="cn.com.yusys.po.ProjectFileRelationKey" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from project_file_relation
-    where project_id = #{projectId,jdbcType=VARCHAR}
-      and file_id = #{fileId,jdbcType=VARCHAR}
+    where file_id = #{fileId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="cn.com.yusys.po.ProjectFileRelation" >
-    insert into project_file_relation (project_id, file_id, name, 
+    insert into project_file_relation (file_id, project_id, name, 
       original, path, author, 
       deleter, time)
-    values (#{projectId,jdbcType=VARCHAR}, #{fileId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+    values (#{fileId,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{original,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
       #{deleter,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.com.yusys.po.ProjectFileRelation" >
     insert into project_file_relation
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="projectId != null" >
-        project_id,
-      </if>
       <if test="fileId != null" >
         file_id,
+      </if>
+      <if test="projectId != null" >
+        project_id,
       </if>
       <if test="name != null" >
         name,
@@ -63,11 +61,11 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="projectId != null" >
-        #{projectId,jdbcType=VARCHAR},
-      </if>
       <if test="fileId != null" >
         #{fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=VARCHAR},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
@@ -92,6 +90,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="cn.com.yusys.po.ProjectFileRelation" >
     update project_file_relation
     <set >
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=VARCHAR},
+      </if>
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
@@ -111,18 +112,17 @@
         time = #{time,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where project_id = #{projectId,jdbcType=VARCHAR}
-      and file_id = #{fileId,jdbcType=VARCHAR}
+    where file_id = #{fileId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.com.yusys.po.ProjectFileRelation" >
     update project_file_relation
-    set name = #{name,jdbcType=VARCHAR},
+    set project_id = #{projectId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
       original = #{original,jdbcType=VARCHAR},
       path = #{path,jdbcType=VARCHAR},
       author = #{author,jdbcType=VARCHAR},
       deleter = #{deleter,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP}
-    where project_id = #{projectId,jdbcType=VARCHAR}
-      and file_id = #{fileId,jdbcType=VARCHAR}
+    where file_id = #{fileId,jdbcType=VARCHAR}
   </update>
 </mapper>

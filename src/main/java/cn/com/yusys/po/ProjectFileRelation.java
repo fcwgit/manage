@@ -3,7 +3,11 @@ package cn.com.yusys.po;
 import java.io.Serializable;
 import java.util.Date;
 
-public class ProjectFileRelation extends ProjectFileRelationKey implements Serializable {
+public class ProjectFileRelation implements Serializable {
+    private String fileId;
+
+    private String projectId;
+
     private String name;
 
     private String original;
@@ -17,6 +21,22 @@ public class ProjectFileRelation extends ProjectFileRelationKey implements Seria
     private Date time;
 
     private static final long serialVersionUID = 1L;
+
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId == null ? null : fileId.trim();
+    }
+
+    public String getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(String projectId) {
+        this.projectId = projectId == null ? null : projectId.trim();
+    }
 
     public String getName() {
         return name;

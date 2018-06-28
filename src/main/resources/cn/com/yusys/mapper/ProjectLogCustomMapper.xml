@@ -25,6 +25,7 @@
     <include refid="Blob_Column_List" />
     from project_log
     where projectid = #{projectid,jdbcType=VARCHAR}
+      ORDER BY time desc
   </select>
 
 </mapper>

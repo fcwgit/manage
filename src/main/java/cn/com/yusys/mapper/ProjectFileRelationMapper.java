@@ -1,16 +1,15 @@
 package cn.com.yusys.mapper;
 
 import cn.com.yusys.po.ProjectFileRelation;
-import cn.com.yusys.po.ProjectFileRelationKey;
 
 public interface ProjectFileRelationMapper {
-    int deleteByPrimaryKey(ProjectFileRelationKey key);
+    int deleteByPrimaryKey(String fileId);
 
     int insert(ProjectFileRelation record);
 
     int insertSelective(ProjectFileRelation record);
 
-    ProjectFileRelation selectByPrimaryKey(ProjectFileRelationKey key);
+    ProjectFileRelation selectByPrimaryKey(String fileId);
 
     int updateByPrimaryKeySelective(ProjectFileRelation record);
 

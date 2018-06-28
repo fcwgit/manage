@@ -51,8 +51,8 @@
 
         <!--<table tableName="project" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--enableUpdateByExample="false"/>-->
-        <!--<table tableName="project_file_relation" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
-               <!--enableUpdateByExample="false"/>-->
+        <table tableName="project_file_relation" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false"/>
         <!--<table tableName="project_branch_relation" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--enableUpdateByExample="false"/>-->
         <!--<table tableName="project_user_relation" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
@@ -70,7 +70,7 @@
         <!--<table tableName="param" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--enableUpdateByExample="false"/>-->
 
-        <table tableName="project_log" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
-               enableUpdateByExample="false"/>
+        <!--<table tableName="project_log" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+               <!--enableUpdateByExample="false"/>-->
     </context>
 </generatorConfiguration>

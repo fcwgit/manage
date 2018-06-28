@@ -52,7 +52,7 @@ public class BranchController {
             if (!flag){
                 BranchSlaverNode slaverNode = new BranchSlaverNode();
                 slaverNode.setId(branch.getSlaver());
-                slaverNode.setLabel(branch.getSlaver());
+                slaverNode.setLabel(branch.getSlaverDisplay());
                 slaverNode.addChildren(branch);
                 masterNode.addChildren(slaverNode);
             }

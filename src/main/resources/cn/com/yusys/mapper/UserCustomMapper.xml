@@ -20,6 +20,9 @@
   <sql id="query_pinyin_where">
     <!--使用动态SQL，通过if判断，满足条件进行SQL拼接-->
     <!--商品查询条件通过ItemQueryVo包装对象中itemsCustom属性传递-->
+    <if test="state!=null">
+      state=#{state}
+    </if>
     <if test="pinyin!=null">
       pinyin LIKE '%${pinyin}%'
     </if>

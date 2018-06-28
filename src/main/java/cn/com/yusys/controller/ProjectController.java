@@ -92,20 +92,55 @@ public class ProjectController {
             bankData.add(slaverNodeHashMap.get(key));
         }
 
-
         objectHashMap.put("bankData",bankData);
         objectHashMap.put("id",id);
 
-        objectHashMap.put("worker",userService.selectAllUser(new HashMap<>()));
-
-
+        HashMap<String,String> param = new HashMap<>();
+        param.put("state","0");
+        objectHashMap.put("worker",userService.selectAllUser(param));
 
         response.setBody(objectHashMap);
-
-
         return response;
     }
 
+    @RequestMapping("getOptions")
+    public @ResponseBody Response getOptions() throws Exception {
+        Head head = new Head();
+        head.setErrorCode("000000");
+        Response response = new Response();
+        response.setHead(head);
+
+        HashMap<String,Object> objectHashMap = new HashMap<>();
+        List<BranchCustom> branchList = branchService.selectAllBranch();
+
+        HashMap<String,BranchSlaverNode> slaverNodeHashMap = new HashMap<String, BranchSlaverNode>();
+        for (BranchCustom branchCustom : branchList){
+            BranchSlaverNode slaverNode = slaverNodeHashMap.get(branchCustom.getMaster());
+            if (null == slaverNode){
+                slaverNode = new BranchSlaverNode();
+                slaverNode.setId(branchCustom.getMaster());
+                slaverNode.setLabel(branchCustom.getMasterDisplay());
+                slaverNodeHashMap.put(branchCustom.getMaster(),slaverNode);
+            }
+
+            List<Branch> branchNodes = slaverNode.getChildren();
+            branchNodes.add(branchCustom);
+        }
+
+        List<BranchSlaverNode> bankData = new ArrayList<>();
+        for (String key:slaverNodeHashMap.keySet()){
+            bankData.add(slaverNodeHashMap.get(key));
+        }
+
+        objectHashMap.put("bankData",bankData);
+
+        HashMap<String,String> param = new HashMap<>();
+        param.put("state","0");
+        objectHashMap.put("worker",userService.selectAllUser(param));
+
+        response.setBody(objectHashMap);
+        return response;
+    }
 
     @RequestMapping("queryData")
     public @ResponseBody Response queryData() throws Exception {
@@ -540,6 +575,52 @@ public class ProjectController {
 
         List<ProjectFileRelation> projectFileRelationList = projectService.selectProjectFileRelationByProjectKey(project.getId());
         objectHashMap.put("projectFileRelationList",projectFileRelationList);
+
+
+
+        ProjectLog param = new ProjectLog();
+        param.setProjectid(request.getKey());
+
+        List<ProjectLog> projectLogList = projectService.selectProjectLogByProjectKey(param);
+        List<ProjectLog> targetList = new ArrayList<>();
+        List<ProjectLog> leaderList = new ArrayList<>();
+        List<ProjectLog> leaderBakList = new ArrayList<>();
+        List<ProjectLog> masterList = new ArrayList<>();
+        List<ProjectLog> masterBakList = new ArrayList<>();
+        List<ProjectLog> slaverList = new ArrayList<>();
+        for (ProjectLog projectLog:projectLogList){
+            if (projectLog.getTrade().equals("addTarget")){
+                targetList.add(projectLog);
+                continue;
+            }
+            if (projectLog.getTrade().equals("addLeader")){
+                leaderList.add(projectLog);
+                continue;
+            }
+            if (projectLog.getTrade().equals("addLeaderBak")){
+                leaderBakList.add(projectLog);
+                continue;
+            }
+            if (projectLog.getTrade().equals("addMaster")){
+                masterList.add(projectLog);
+                continue;
+            }
+            if (projectLog.getTrade().equals("addMasterBak")){
+                masterBakList.add(projectLog);
+                continue;
+            }
+            if (projectLog.getTrade().equals("addSlaver")){
+                slaverList.add(projectLog);
+                ;
+            }
+        }
+        objectHashMap.put("addTarget",targetList);
+        objectHashMap.put("addLeader",leaderList);
+        objectHashMap.put("addLeaderBak",leaderBakList);
+        objectHashMap.put("addMaster",masterList);
+        objectHashMap.put("addMasterBak",masterBakList);
+        objectHashMap.put("addSlaver",slaverList);
+
 
         response.setBody(objectHashMap);
         return response;

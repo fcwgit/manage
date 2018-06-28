@@ -9,6 +9,8 @@ import cn.com.yusys.util.ParamUtil;
 import cn.com.yusys.vo.Head;
 import cn.com.yusys.vo.Request;
 import cn.com.yusys.vo.Response;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +26,7 @@ import java.util.UUID;
 
 @Controller
 public class UploadController {
+    private Log log = LogFactory.getLog(UploadController.class);
     @Autowired
     ProjectService projectService;
 
@@ -37,6 +40,7 @@ public class UploadController {
         HashMap<String,Object> objectHashMap = new HashMap<>();
         Manager manager = (Manager)session.getAttribute(session.getId());
 
+
         String originalFilename = uploadFile.getOriginalFilename();
         if (null != uploadFile && null != originalFilename && originalFilename.length()>0){
             String filePath = ParamUtil.get("filePath");
@@ -44,7 +48,7 @@ public class UploadController {
             String id = UUID.randomUUID().toString();
             String newFileName = id + originalFilename.substring(originalFilename.lastIndexOf("."));
 
-            File newFile = new File(session.getServletContext().getRealPath("/img") + "/" + newFileName);
+            File newFile = new File(filePath + newFileName);
 
             uploadFile.transferTo(newFile);
             objectHashMap.put("id",id);
@@ -57,6 +61,7 @@ public class UploadController {
             projectFileRelation.setName(newFileName);
             projectFileRelation.setOriginal(originalFilename);
             projectFileRelation.setPath("img/"+newFileName);
+
             projectFileRelation.setAuthor(manager.getName());
             projectService.insertFileRelation(projectFileRelation);
         }
