@@ -20,6 +20,7 @@
     <bean id="userService" class="cn.com.yusys.service.impl.UserServiceImpl"/>
     <bean id="branchService" class="cn.com.yusys.service.impl.BranchServiceImpl"/>
     <bean id="projectService" class="cn.com.yusys.service.impl.ProjectServiceImpl"/>
+    <bean id="messageService" class="cn.com.yusys.service.impl.MessageServiceImpl"/>
 </beans>
 
 

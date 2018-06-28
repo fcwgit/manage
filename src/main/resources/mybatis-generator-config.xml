@@ -73,7 +73,7 @@
         <!--<table tableName="project_log" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
                <!--enableUpdateByExample="false"/>-->
 
-        <table tableName="document" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+        <table tableName="message" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false"/>
     </context>
 </generatorConfiguration>
