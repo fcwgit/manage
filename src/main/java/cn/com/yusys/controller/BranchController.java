@@ -79,8 +79,10 @@ public class BranchController {
         Manager manager = (Manager)session.getAttribute(session.getId());
 
         Branch branch = new Branch();
+        String id = UUID.randomUUID().toString();
+        branch.setId(id);
         branch.setLabel(request.getName());
-        branch.setNum(request.getNum());
+        branch.setNum(id);
         branch.setMaster(request.getMaster());
         branch.setSlaver(request.getSlaver());
         branch.setState("0");

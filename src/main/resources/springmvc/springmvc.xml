@@ -10,24 +10,14 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <!--通过组件扫描加载Controller
-        可以扫描Controller、Service
-        此处扫描Controller
-    -->
     <context:component-scan base-package="cn.com.yusys.controller"/>
 
-    <!--静态资源解析-->
     <mvc:resources mapping="/vue/**" location="/vue/"/>
     <mvc:resources mapping="/static/js/**" location="/vue/static/js/"/>
     <mvc:resources mapping="/static/css/**" location="/vue/static/css/"/>
     <mvc:resources mapping="/static/fonts/**" location="/vue/static/fonts/"/>
 
-    <!--使用mvc:annotation-driven可以代替1.3和2.3两个注解映射器和注解适配器
-        mvc:annotation-driven还默认加载了很多参数绑定，比如JSON转换解析器默认加载了
-    -->
-    <!--类型转换-->
     <mvc:annotation-driven conversion-service="conversionService">
-        <!-- 处理responseBody 里面日期类型 -->
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
                 <property name="objectMapper">
@@ -42,9 +32,7 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
-    <!--<mvc:annotation-driven/>-->
-    
-    
+
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
@@ -56,20 +44,14 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
-    <!--视图解析器
-        解析jsp视图，默认使用jstl标签，classpath需要含有jstl包
-    -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!--自定义参数绑定-->
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-        <!--配置转换器-->
         <property name="converters">
             <set>
-                <!--日期类型转换-->
                 <bean class="cn.com.yusys.converter.CustomDateConverter"/>
             </set>
         </property>

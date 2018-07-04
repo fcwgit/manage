@@ -13,7 +13,7 @@ public class AllowOriginInterceptor implements HandlerInterceptor{
     //切面编程：Handler执行之前执行
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        httpServletResponse.setHeader("Access-Control-Allow-Origin", "http://localhost:8080 ");
+        httpServletResponse.setHeader("Access-Control-Allow-Origin", "http://localhost:8081");
         httpServletResponse.setHeader("Access-Control-Allow-Headers", "Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild, x-access-token");
         httpServletResponse.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS");
         httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");

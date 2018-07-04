@@ -509,11 +509,16 @@ public class ProjectController {
         for (Project project:projectList){
             ProjectCustom projectCustom = new ProjectCustom();
             BeanUtils.copyProperties(project,projectCustom);
-            if (project.getAuthor().equals(manager.getName())){
+            if(manager.getType().equals("0")){
                 projectCustom.setRight(true);
             }else {
-                projectCustom.setRight(false);
+                if (project.getAuthor().equals(manager.getName())){
+                    projectCustom.setRight(true);
+                }else {
+                    projectCustom.setRight(false);
+                }
             }
+
             projectCustom.setStateDisplay(project.getState());
             newProjectList.add(projectCustom);
         }
@@ -632,6 +637,33 @@ public class ProjectController {
         objectHashMap.put("addSlaver",slaverList);
         objectHashMap.put("fileLog",fileLogList);
 
+
+        List<BranchCustom> branchList = branchService.selectAllBranch();
+
+        HashMap<String,BranchSlaverNode> slaverNodeHashMap = new HashMap<String, BranchSlaverNode>();
+        for (BranchCustom branchCustom : branchList){
+            BranchSlaverNode slaverNode = slaverNodeHashMap.get(branchCustom.getMaster());
+            if (null == slaverNode){
+                slaverNode = new BranchSlaverNode();
+                slaverNode.setId(branchCustom.getMaster());
+                slaverNode.setLabel(branchCustom.getMasterDisplay());
+                slaverNodeHashMap.put(branchCustom.getMaster(),slaverNode);
+            }
+
+            List<Branch> branchNodes = slaverNode.getChildren();
+            branchNodes.add(branchCustom);
+        }
+
+        List<BranchSlaverNode> bankData = new ArrayList<>();
+        for (String key:slaverNodeHashMap.keySet()){
+            bankData.add(slaverNodeHashMap.get(key));
+        }
+
+        objectHashMap.put("bankData",bankData);
+
+        HashMap<String,String> params = new HashMap<>();
+        params.put("state","0");
+        objectHashMap.put("worker",userService.selectAllUser(params));
 
         response.setBody(objectHashMap);
         return response;
