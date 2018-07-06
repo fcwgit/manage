@@ -20,6 +20,7 @@
         <if test="name!=null">
             name LIKE '%${name}%'
         </if>
+        and state='0'
     </sql>
     <select id="selectAllProject" resultMap="BaseResultMap" parameterType="java.util.HashMap">
         select

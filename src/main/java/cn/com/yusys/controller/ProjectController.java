@@ -530,6 +530,20 @@ public class ProjectController {
         return response;
     }
 
+    @RequestMapping("deleteProject")
+    public @ResponseBody Response deleteProject(@RequestBody Request request)throws Exception{
+        Head head = new Head();
+        Response response = new Response();
+
+        head.setErrorCode("000000");
+        response.setHead(head);
+
+        Project project = new Project();
+        project.setId(request.getProjectId());
+        project.setState("1");
+        projectService.updateByPrimaryKeySelective(project);
+        return response;
+    }
 
     @RequestMapping("queryProjectDetail")
     public @ResponseBody Response queryProjectDetail(@RequestBody Request request)throws Exception{

@@ -17,7 +17,7 @@ public interface ProjectService {
     public int updateProjectBranchDeleterByProjectKey(ProjectBranchRelation relation)throws Exception;
 
 
-
+    public int updateByPrimaryKeySelective(Project record) throws Exception;
     //
 
     public int insertUserRelation(ProjectUserRelation relation)throws Exception;

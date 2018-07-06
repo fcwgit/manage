@@ -39,11 +39,6 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
-
-
-
-
-
   <!--springmvc前端控制器配置-->
   <servlet>
     <servlet-name>springmvc</servlet-name>
@@ -59,11 +54,6 @@
   
   <servlet-mapping>
     <servlet-name>springmvc</servlet-name>
-    <!--
-      1、*.action，访问以.action结尾由DispatcherServlet进行解析
-      2、/，所有访问请求都由DispatcherServlet进行解析，对于静态文件的解析配置不让DispatcherServlet进行解析，使用此种方法可以实现restful风格的URL
-      3、/*，此种配置是错误的
-    -->
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 

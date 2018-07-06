@@ -59,6 +59,11 @@ public class ProjectServiceImpl implements ProjectService{
     }
 
     @Override
+    public int updateByPrimaryKeySelective(Project record) throws Exception {
+        return projectMapper.updateByPrimaryKeySelective(record);
+    }
+
+    @Override
     public int insertUserRelation(ProjectUserRelation relation) throws Exception {
         return projectUserRelationMapper.insertSelective(relation);
     }
