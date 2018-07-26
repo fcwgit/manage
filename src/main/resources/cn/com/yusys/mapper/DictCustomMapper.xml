@@ -14,6 +14,7 @@
     select 
     <include refid="Base_Column_List" />
     from dict
+    order by type,code
   </select>
 
 </mapper>
